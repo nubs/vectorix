@@ -1,4 +1,2 @@
-vectorix
-========
-
-A PHP Vector Library
+# vectorix
+A PHP vector library.

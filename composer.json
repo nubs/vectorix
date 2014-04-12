@@ -1,0 +1,21 @@
+{
+    "name": "nubs/vectorix",
+    "description": "A vector library.",
+    "keywords": ["vector", "math"],
+    "authors": [
+        {
+            "name": "Spencer Rinehart",
+            "email": "anubis@overthemonkey.com",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-4": { 
+            "Nubs\\Vectorix\\": "src"
+        }
+    }
+}
