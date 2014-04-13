@@ -52,4 +52,18 @@ class VectorTest extends PHPUnit_Framework_TestCase
         $vector = new Vector(array(3, 4));
         $this->assertEquals(5.0, $vector->length(), '', 1e-10);
     }
+
+    /**
+     * Verify that the length of a 0-dimensional vector is correct.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @covers ::length
+     */
+    public function lengthOfZeroDimensionalVector()
+    {
+        $vector = new Vector(array());
+        $this->assertEquals(0.0, $vector->length(), '', 1e-10);
+    }
 }
