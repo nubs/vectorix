@@ -36,4 +36,16 @@ class VectorTest extends PHPUnit_Framework_TestCase
         $vector = new Vector(array(1, 0, 0));
         $this->assertSame(3, $vector->dimension());
     }
+
+    /**
+     * Verify that the length of the vector is correct.
+     *
+     * @test
+     * @covers ::length
+     */
+    public function lengthIsCorrect()
+    {
+        $vector = new Vector(array(3, 4));
+        $this->assertEquals(5.0, $vector->length(), '', 1e-10);
+    }
 }

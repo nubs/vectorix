@@ -45,4 +45,20 @@ class Vector
     {
         return count($this->_components);
     }
+
+    /**
+     * Returns the length of the vector.
+     *
+     * @api
+     * @return float The length/magnitude of the vector.
+     */
+    public function length()
+    {
+        $sumOfSquares = 0;
+        foreach ($this->components() as $component) {
+            $sumOfSquares += pow($component, 2);
+        }
+
+        return sqrt($sumOfSquares);
+    }
 }
