@@ -29,6 +29,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * Verify that the dimension of the vector is correct.
      *
      * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
      * @covers ::dimension
      */
     public function dimensionIsCorrect()
@@ -41,6 +42,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * Verify that the length of the vector is correct.
      *
      * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
      * @covers ::length
      */
     public function lengthIsCorrect()
