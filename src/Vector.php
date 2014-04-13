@@ -34,4 +34,15 @@ class Vector
     {
         return $this->_components;
     }
+
+    /**
+     * Get the dimension/cardinality of the vector.
+     *
+     * @api
+     * @return int The dimension/cardinality of the vector.
+     */
+    public function dimension()
+    {
+        return count($this->_components);
+    }
 }

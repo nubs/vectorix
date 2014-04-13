@@ -24,4 +24,16 @@ class VectorTest extends PHPUnit_Framework_TestCase
 
         $this->assertSame($components, $vector->components());
     }
+
+    /**
+     * Verify that the dimension of the vector is correct.
+     *
+     * @test
+     * @covers ::dimension
+     */
+    public function dimensionIsCorrect()
+    {
+        $vector = new Vector(array(1, 0, 0));
+        $this->assertSame(3, $vector->dimension());
+    }
 }
