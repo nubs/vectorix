@@ -30,6 +30,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      *
      * @test
      * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
      * @covers ::dimension
      */
     public function dimensionIsCorrect()

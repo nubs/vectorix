@@ -43,7 +43,7 @@ class Vector
      */
     public function dimension()
     {
-        return count($this->_components);
+        return count($this->components());
     }
 
     /**
