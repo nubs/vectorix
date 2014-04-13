@@ -68,7 +68,7 @@ class Vector
      * Check whether the given vector is the same as this vector.
      *
      * @api
-     * @param self $b The vector to check for equality.
+     * @param \Nubs\Vectorix\Vector $b The vector to check for equality.
      * @return bool True if the vectors are equal and false otherwise.
      */
     public function isEqual(self $b)
@@ -103,7 +103,7 @@ class Vector
      * The vectors must be of the same dimension and have the same keys in their components.
      *
      * @internal
-     * @param self $b The vector to check against.
+     * @param \Nubs\Vectorix\Vector $b The vector to check against.
      * @return void
      * @throws Exception if the vectors are not of the same dimension.
      * @throws Exception if the vectors' components down have the same keys.
