@@ -80,6 +80,7 @@ class Vector
      * Adds two vectors together.
      *
      * @api
+     * @param self $b The vector to add.
      * @return self The sum of the two vectors.
      * @throws Exception if the vectors are not in the same vector space.
      * @see self::_checkVectorSpace() For exception information.
