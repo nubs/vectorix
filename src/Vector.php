@@ -66,6 +66,7 @@ class Vector
      * Check whether the given vector is the same as this vector.
      *
      * @api
+     * @param self $b The vector to check for equality.
      * @return bool True if the vectors are equal and false otherwise.
      */
     public function isEqual(self $b)
