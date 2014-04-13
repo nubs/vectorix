@@ -66,4 +66,34 @@ class VectorTest extends PHPUnit_Framework_TestCase
         $vector = new Vector(array());
         $this->assertEquals(0.0, $vector->length(), '', 1e-10);
     }
+
+    /**
+     * Verify that 2 equal vectors are considered the same.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @covers ::isEqual
+     */
+    public function isEqualWithSameVectors()
+    {
+        $a = new Vector(array(1, 2, 3));
+        $b = new Vector(array(1, 2, 3));
+        $this->assertTrue($a->isEqual($b), 'Vectors with same components are equal');
+    }
+
+    /**
+     * Verify that 2 different vectors are not considered the same.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @covers ::isEqual
+     */
+    public function isEqualWithDifferentVectors()
+    {
+        $a = new Vector(array(1, 2, 3));
+        $b = new Vector(array(9, 2, 3));
+        $this->assertFalse($a->isEqual($b), 'Vectors with different components are not equal');
+    }
 }

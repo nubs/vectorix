@@ -61,4 +61,15 @@ class Vector
 
         return sqrt($sumOfSquares);
     }
+
+    /**
+     * Check whether the given vector is the same as this vector.
+     *
+     * @api
+     * @return bool True if the vectors are equal and false otherwise.
+     */
+    public function isEqual(self $b)
+    {
+        return $this->components() === $b->components();
+    }
 }
