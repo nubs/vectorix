@@ -172,4 +172,32 @@ class VectorTest extends PHPUnit_Framework_TestCase
         $b = new Vector(array('x' => 4, 'y' => 5, 'z' => 6));
         $a->add($b);
     }
+
+    /**
+     * Verify that multiplication by a scalar works.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @covers ::multiplyByScalar
+     */
+    public function multiplyByScalarWithSimpleValue()
+    {
+        $a = new Vector(array(1, 2, 3));
+        $this->assertSame(array(3, 6, 9), $a->multiplyByScalar(3)->components());
+    }
+
+    /**
+     * Verify that multiplication by a scalar works for a 0-dimensional vector.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @covers ::multiplyByScalar
+     */
+    public function multiplyByScalarWithZeroDimensionalVector()
+    {
+        $a = new Vector(array());
+        $this->assertSame(array(), $a->multiplyByScalar(3)->components());
+    }
 }

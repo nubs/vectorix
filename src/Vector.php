@@ -98,6 +98,23 @@ class Vector
     }
 
     /**
+     * Multiplies the vector by the given scalar.
+     *
+     * @api
+     * @param int|float $scalar The real number ot multiply by.
+     * @return self The result of the multiplication.
+     */
+    public function multiplyByScalar($scalar)
+    {
+        $result = array();
+        foreach ($this->components() as $i => $component) {
+            $result[$i] = $component * $scalar;
+        }
+
+        return new static($result);
+    }
+
+    /**
      * Checks that the vector spaces of the two vectors are the same.
      *
      * The vectors must be of the same dimension and have the same keys in their components.
