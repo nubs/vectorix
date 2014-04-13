@@ -96,4 +96,80 @@ class VectorTest extends PHPUnit_Framework_TestCase
         $b = new Vector(array(9, 2, 3));
         $this->assertFalse($a->isEqual($b), 'Vectors with different components are not equal');
     }
+
+    /**
+     * Verify that addition works as expected.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::add
+     * @covers ::_checkVectorSpace
+     */
+    public function addAnotherVector()
+    {
+        $a = new Vector(array(1, 2, 3));
+        $b = new Vector(array(4, 5, 6));
+        $this->assertSame(array(5, 7, 9), $a->add($b)->components());
+    }
+
+    /**
+     * Verify that addition works with 0-dimensional vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::add
+     * @covers ::_checkVectorSpace
+     */
+    public function addZeroDimensionalVectors()
+    {
+        $a = new Vector(array());
+        $b = new Vector(array());
+        $this->assertSame(array(), $a->add($b)->components());
+    }
+
+    /**
+     * Verify that addition fails with different dimension vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::add
+     * @covers ::_checkVectorSpace
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors must be of the same dimension
+     */
+    public function addVectorsOfDifferentDimensions()
+    {
+        $a = new Vector(array(1, 2, 3));
+        $b = new Vector(array(4, 5));
+        $a->add($b);
+    }
+
+    /**
+     * Verify that addition fails with vectors whose components' keys don't match.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::add
+     * @covers ::_checkVectorSpace
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors' components must have the same keys
+     */
+    public function addVectorsWithDifferentlyKeyedComponents()
+    {
+        $a = new Vector(array(1, 2, 3));
+        $b = new Vector(array('x' => 4, 'y' => 5, 'z' => 6));
+        $a->add($b);
+    }
 }
