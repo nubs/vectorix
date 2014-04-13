@@ -99,6 +99,20 @@ class Vector
     }
 
     /**
+     * Subtracts the given vector from this vector.
+     *
+     * @api
+     * @param self $b The vector to subtract from this vector.
+     * @return self The difference of the two vectors.
+     * @throws Exception if the vectors are not in the same vector space.
+     * @see self::_checkVectorSpace() For exception information.
+     */
+    public function subtract(self $b)
+    {
+        return $this->add($b->multiplyByScalar(-1));
+    }
+
+    /**
      * Multiplies the vector by the given scalar.
      *
      * @api

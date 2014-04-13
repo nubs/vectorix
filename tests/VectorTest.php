@@ -174,6 +174,90 @@ class VectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Verify that subtraction works as expected.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::add
+     * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::subtract
+     * @covers ::_checkVectorSpace
+     */
+    public function subtractAnotherVector()
+    {
+        $a = new Vector(array(4, 5, 6));
+        $b = new Vector(array(1, 2, 3));
+        $this->assertSame(array(3, 3, 3), $a->subtract($b)->components());
+    }
+
+    /**
+     * Verify that subtraction works with 0-dimensional vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::add
+     * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::subtract
+     * @covers ::_checkVectorSpace
+     */
+    public function subtractZeroDimensionalVectors()
+    {
+        $a = new Vector(array());
+        $b = new Vector(array());
+        $this->assertSame(array(), $a->subtract($b)->components());
+    }
+
+    /**
+     * Verify that subtraction fails with different dimension vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::add
+     * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::subtract
+     * @covers ::_checkVectorSpace
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors must be of the same dimension
+     */
+    public function subtractVectorsOfDifferentDimensions()
+    {
+        $a = new Vector(array(4, 5, 6));
+        $b = new Vector(array(1, 2));
+        $a->subtract($b);
+    }
+
+    /**
+     * Verify that subtraction fails with vectors whose components' keys don't match.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::add
+     * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::subtract
+     * @covers ::_checkVectorSpace
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors' components must have the same keys
+     */
+    public function subtractVectorsWithDifferentlyKeyedComponents()
+    {
+        $a = new Vector(array(4, 5, 6));
+        $b = new Vector(array('x' => 1, 'y' => 2, 'z' => 3));
+        $a->subtract($b);
+    }
+
+    /**
      * Verify that multiplication by a scalar works.
      *
      * @test
