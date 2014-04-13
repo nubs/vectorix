@@ -89,7 +89,7 @@ class Vector
         $this->_checkVectorSpace($b);
 
         $bComponents = $b->components();
-        $sum = [];
+        $sum = array();
         foreach ($this->components() as $i => $component) {
             $sum[$i] = $component + $bComponents[$i];
         }
