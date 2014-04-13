@@ -116,7 +116,7 @@ class Vector
      * Multiplies the vector by the given scalar.
      *
      * @api
-     * @param int|float $scalar The real number ot multiply by.
+     * @param int|float $scalar The real number to multiply by.
      * @return self The result of the multiplication.
      */
     public function multiplyByScalar($scalar)
