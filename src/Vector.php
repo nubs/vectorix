@@ -130,6 +130,18 @@ class Vector
     }
 
     /**
+     * Divides the vector by the given scalar.
+     *
+     * @api
+     * @param int|float $scalar The real number to divide by.
+     * @return self The result of the division.
+     */
+    public function divideByScalar($scalar)
+    {
+        return $this->multiplyByScalar(1.0 / $scalar);
+    }
+
+    /**
      * Checks that the vector spaces of the two vectors are the same.
      *
      * The vectors must be of the same dimension and have the same keys in their components.

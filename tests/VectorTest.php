@@ -284,4 +284,36 @@ class VectorTest extends PHPUnit_Framework_TestCase
         $a = new Vector(array());
         $this->assertSame(array(), $a->multiplyByScalar(3)->components());
     }
+
+    /**
+     * Verify that division by a scalar works.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @covers ::divideByScalar
+     */
+    public function divideByScalarWithSimpleValue()
+    {
+        $a = new Vector(array(4, 8));
+        $resultComponents = $a->divideByScalar(4)->components();
+        $this->assertEquals(1.0, $resultComponents[0], '', 1e-10);
+        $this->assertEquals(2.0, $resultComponents[1], '', 1e-10);
+    }
+
+    /**
+     * Verify that division by a scalar works for a 0-dimensional vector.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @covers ::divideByScalar
+     */
+    public function divideByScalarWithZeroDimensionalVector()
+    {
+        $a = new Vector(array());
+        $this->assertSame(array(), $a->divideByScalar(3)->components());
+    }
 }
