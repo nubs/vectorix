@@ -147,6 +147,21 @@ class Vector
     }
 
     /**
+     * Return the normalized vector.
+     *
+     * The normalized vector (or unit vector) is the vector with the same
+     * direction as this vector, but with a length/magnitude of 1.
+     *
+     * @api
+     * @return self The normalized vector.
+     * @throws Exception if the vector length is zero.
+     */
+    public function normalize()
+    {
+        return $this->divideByScalar($this->length());
+    }
+
+    /**
      * Checks that the vector spaces of the two vectors are the same.
      *
      * The vectors must be of the same dimension and have the same keys in their

@@ -334,4 +334,59 @@ class VectorTest extends PHPUnit_Framework_TestCase
         $a = new Vector(array(4, 8));
         $a->divideByScalar(0);
     }
+
+    /**
+     * Verify that normalization works.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @uses \Nubs\Vectorix\Vector::divideByScalar
+     * @uses \Nubs\Vectorix\Vector::length
+     * @covers ::normalize
+     */
+    public function normalizeSimpleVector()
+    {
+        $a = new Vector(array(1, 1));
+        $resultComponents = $a->normalize()->components();
+        $this->assertEquals(sqrt(2) / 2, $resultComponents[0], '', 1e-10);
+        $this->assertEquals(sqrt(2) / 2, $resultComponents[1], '', 1e-10);
+    }
+
+    /**
+     * Verify that normalization of a 0-dimensional vector throws an exception.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::divideByScalar
+     * @uses \Nubs\Vectorix\Vector::length
+     * @covers ::normalize
+     * @expectedException Exception
+     * @expectedExceptionMessage Cannot divide by zero
+     */
+    public function normalizeZeroDimensionalVector()
+    {
+        $a = new Vector(array());
+        $a->normalize();
+    }
+
+    /**
+     * Verify that normalization of a 0-length vector throws an exception.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::divideByScalar
+     * @uses \Nubs\Vectorix\Vector::length
+     * @covers ::normalize
+     * @expectedException Exception
+     * @expectedExceptionMessage Cannot divide by zero
+     */
+    public function normalizeZeroLengthVector()
+    {
+        $a = new Vector(array(0, 0, 0));
+        $a->normalize();
+    }
 }
