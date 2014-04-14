@@ -319,4 +319,19 @@ class VectorTest extends PHPUnit_Framework_TestCase
         $a = new Vector(array());
         $this->assertSame(array(), $a->divideByScalar(3)->components());
     }
+
+    /**
+     * Verify that division by zero throws an exception.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @covers ::divideByScalar
+     * @expectedException Exception
+     * @expectedExceptionMessage Cannot divide by zero
+     */
+    public function divideByScalarZero()
+    {
+        $a = new Vector(array(4, 8));
+        $a->divideByScalar(0);
+    }
 }

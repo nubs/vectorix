@@ -135,9 +135,14 @@ class Vector
      * @api
      * @param int|float $scalar The real number to divide by.
      * @return self The result of the division.
+     * @throws Exception if the $scalar is 0.
      */
     public function divideByScalar($scalar)
     {
+        if ($scalar == 0) {
+            throw new Exception('Cannot divide by zero');
+        }
+
         return $this->multiplyByScalar(1.0 / $scalar);
     }
 
