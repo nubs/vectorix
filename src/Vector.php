@@ -144,7 +144,8 @@ class Vector
     /**
      * Checks that the vector spaces of the two vectors are the same.
      *
-     * The vectors must be of the same dimension and have the same keys in their components.
+     * The vectors must be of the same dimension and have the same keys in their
+     * components.
      *
      * @internal
      * @param self $b The vector to check against.

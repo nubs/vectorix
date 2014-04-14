@@ -9,7 +9,8 @@ use PHPUnit_Framework_TestCase;
 class VectorTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Verify that getComponents returns the same components the vector was constructed with.
+     * Verify that getComponents returns the same components the vector was
+     * constructed with.
      *
      * In particular, this makes sure that the keys are left alone.
      *
@@ -154,7 +155,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Verify that addition fails with vectors whose components' keys don't match.
+     * Verify that addition fails with vectors whose components' keys don't
+     * match.
      *
      * @test
      * @uses \Nubs\Vectorix\Vector::__construct
@@ -236,7 +238,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Verify that subtraction fails with vectors whose components' keys don't match.
+     * Verify that subtraction fails with vectors whose components' keys don't
+     * match.
      *
      * @test
      * @uses \Nubs\Vectorix\Vector::__construct
