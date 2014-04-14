@@ -261,6 +261,130 @@ class VectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Verify that the dot product of two simple vectors works.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::dotProduct
+     */
+    public function dotProductOfSimpleVectors()
+    {
+        $a = new Vector(array(1, 3, -5));
+        $b = new Vector(array(4, -2, -1));
+        $this->assertSame(3, $a->dotProduct($b));
+    }
+
+    /**
+     * Verify the dot product of two perpendicular vectors is zero.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::dotProduct
+     */
+    public function dotProductOfPerpendicularVectors()
+    {
+        $a = new Vector(array(4, 4));
+        $b = new Vector(array(4, -4));
+        $this->assertSame(0, $a->dotProduct($b));
+    }
+
+    /**
+     * Verify the dot product of two codirectional vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::dotProduct
+     */
+    public function dotProductOfCodirectionalVectors()
+    {
+        $a = new Vector(array(2, 2));
+        $b = new Vector(array(8, 8));
+        $this->assertSame(32, $a->dotProduct($b));
+    }
+
+    /**
+     * Verify the dot product of two 0-dimensional vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::dotProduct
+     */
+    public function dotProductOfZeroDimensionalVectors()
+    {
+        $a = new Vector(array());
+        $b = new Vector(array());
+        $this->assertSame(0, $a->dotProduct($b));
+    }
+
+    /**
+     * Verify the dot product of a zero-length vector works.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::dotProduct
+     */
+    public function dotProductOfZeroLengthVectors()
+    {
+        $a = new Vector(array(2, 3));
+        $b = new Vector(array(0, 0));
+        $this->assertSame(0, $a->dotProduct($b));
+    }
+
+    /**
+     * Verify that dot product fails with different dimension vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::dotProduct
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors must be of the same dimension
+     */
+    public function dotProductVectorsOfDifferentDimensions()
+    {
+        $a = new Vector(array(1, 2, 3));
+        $b = new Vector(array(4, 5));
+        $a->dotProduct($b);
+    }
+
+    /**
+     * Verify that dot product fails with vectors whose components' keys don't
+     * match.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::dotProduct
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors' components must have the same keys
+     */
+    public function dotProductVectorsWithDifferentlyKeyedComponents()
+    {
+        $a = new Vector(array(1, 2, 3));
+        $b = new Vector(array('x' => 4, 'y' => 5, 'z' => 6));
+        $a->dotProduct($b);
+    }
+
+    /**
      * Verify that multiplication by a scalar works.
      *
      * @test

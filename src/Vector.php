@@ -113,6 +113,27 @@ class Vector
     }
 
     /**
+     * Computes the dot product, or scalar product, of two vectors.
+     *
+     * @param self $b The vector to multiply with.
+     * @return self The dot product of the two vectors.
+     * @throws Exception if the vectors are not in the same vector space.
+     * @see self::_checkVectorSpace() For exception information.
+     */
+    public function dotProduct(self $b)
+    {
+        $this->_checkVectorSpace($b);
+
+        $bComponents = $b->components();
+        $product = 0;
+        foreach ($this->components() as $i => $component) {
+            $product += $component * $bComponents[$i];
+        }
+
+        return $product;
+    }
+
+    /**
      * Multiplies the vector by the given scalar.
      *
      * @api
