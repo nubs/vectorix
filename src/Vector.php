@@ -115,6 +115,7 @@ class Vector
     /**
      * Computes the dot product, or scalar product, of two vectors.
      *
+     * @api
      * @param self $b The vector to multiply with.
      * @return self The dot product of the two vectors.
      * @throws Exception if the vectors are not in the same vector space.
