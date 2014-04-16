@@ -205,6 +205,22 @@ class Vector
     }
 
     /**
+     * Project the vector onto another vector.
+     *
+     * @api
+     * @param self $b The vector to project this vector onto.
+     * @return self The vector projection of this vector onto $b.
+     * @throws Exception if the vector length of $b is zero.
+     * @throws Exception if the vectors are not in the same vector space.
+     * @see self::_checkVectorSpace() For exception information.
+     */
+    public function projectOnto(self $b)
+    {
+        $bUnit = $b->normalize();
+        return $bUnit->multiplyByScalar($this->dotProduct($bUnit));
+    }
+
+    /**
      * Checks that the vector spaces of the two vectors are the same.
      *
      * The vectors must be of the same dimension and have the same keys in their

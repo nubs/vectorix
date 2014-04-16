@@ -556,4 +556,121 @@ class VectorTest extends PHPUnit_Framework_TestCase
         $a = new Vector(array(0, 0, 0));
         $a->normalize();
     }
+
+    /**
+     * Verify that a simple vector projection works.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @uses \Nubs\Vectorix\Vector::divideByScalar
+     * @uses \Nubs\Vectorix\Vector::length
+     * @uses \Nubs\Vectorix\Vector::normalize
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @covers ::projectOnto
+     */
+    public function projectOntoSimpleVector()
+    {
+        $a = new Vector(array(4, 0));
+        $b = new Vector(array(3, 3));
+        $resultComponents = $a->projectOnto($b)->components();
+        $this->assertEquals(2, $resultComponents[0], '', 1e-10);
+        $this->assertEquals(2, $resultComponents[1], '', 1e-10);
+    }
+
+    /**
+     * Verify that a zero-length vector can be projected onto another vector
+     * without error.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @uses \Nubs\Vectorix\Vector::divideByScalar
+     * @uses \Nubs\Vectorix\Vector::length
+     * @uses \Nubs\Vectorix\Vector::normalize
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @covers ::projectOnto
+     */
+    public function projectZeroLengthVectorOntoSimpleVector()
+    {
+        $a = new Vector(array(0, 0));
+        $b = new Vector(array(3, 3));
+        $resultComponents = $a->projectOnto($b)->components();
+        $this->assertEquals(0, $resultComponents[0], '', 1e-10);
+        $this->assertEquals(0, $resultComponents[1], '', 1e-10);
+    }
+
+    /**
+     * Verify that a vector projection fails onto a zero length vector.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::divideByScalar
+     * @uses \Nubs\Vectorix\Vector::length
+     * @uses \Nubs\Vectorix\Vector::normalize
+     * @covers ::projectOnto
+     * @expectedException Exception
+     * @expectedExceptionMessage Cannot divide by zero
+     */
+    public function projectOntoZeroLengthVector()
+    {
+        $a = new Vector(array(4, 0));
+        $b = new Vector(array(0, 0));
+        $a->projectOnto($b);
+    }
+
+    /**
+     * Verify that a vector projection of different dimension vectors fails.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @uses \Nubs\Vectorix\Vector::divideByScalar
+     * @uses \Nubs\Vectorix\Vector::length
+     * @uses \Nubs\Vectorix\Vector::normalize
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @covers ::projectOnto
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors must be of the same dimension
+     */
+    public function projectOntoVectorOfDifferentDimension()
+    {
+        $a = new Vector(array(4, 0));
+        $b = new Vector(array(5));
+        $a->projectOnto($b);
+    }
+
+    /**
+     * Verify that a vector projection onto a differently keyed vector fails.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @uses \Nubs\Vectorix\Vector::divideByScalar
+     * @uses \Nubs\Vectorix\Vector::length
+     * @uses \Nubs\Vectorix\Vector::normalize
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @covers ::projectOnto
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors' components must have the same keys
+     */
+    public function projectOntoVectorWithDifferentlyKeyedComponents()
+    {
+        $a = new Vector(array(4, 0));
+        $b = new Vector(array('x' => 5, 'y' => 7));
+        $a->projectOnto($b);
+    }
 }
