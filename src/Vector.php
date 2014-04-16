@@ -27,14 +27,14 @@ class Vector
     }
 
     /**
-     * Creates a zero-length vector of the given dimension.
+     * Creates a null/zero-length vector of the given dimension.
      *
      * @api
      * @param int $dimension The dimension of the vector to create.  Must be at least 0.
      * @return self The zero-length vector for the given dimension.
      * @throws Exception if the dimension is less than zero.
      */
-    public static function zeroLengthVector($dimension)
+    public static function nullVector($dimension)
     {
         if ($dimension < 0) {
             throw new Exception('Dimension must be zero or greater');

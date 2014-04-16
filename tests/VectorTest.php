@@ -33,11 +33,11 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::__construct
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::length
-     * @covers ::zeroLengthVector
+     * @covers ::nullVector
      */
-    public function zeroLengthVectorHasZeroLength()
+    public function nullVectorHasZeroLength()
     {
-        $vector = Vector::zeroLengthVector(3);
+        $vector = Vector::nullVector(3);
         $this->assertSame(0.0, $vector->length());
     }
 
@@ -48,25 +48,25 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::__construct
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::length
-     * @covers ::zeroLengthVector
+     * @covers ::nullVector
      */
-    public function zeroLengthZeroDimensionalVectorHasZeroLength()
+    public function nullZeroDimensionalVectorHasZeroLength()
     {
-        $vector = Vector::zeroLengthVector(0);
+        $vector = Vector::nullVector(0);
         $this->assertSame(0.0, $vector->length());
     }
 
     /**
-     * Verify that a negative dimension fails for zeroLengthVector.
+     * Verify that a negative dimension fails for nullVector.
      *
      * @test
-     * @covers ::zeroLengthVector
+     * @covers ::nullVector
      * @expectedException Exception
      * @expectedExceptionMessage Dimension must be zero or greater
      */
-    public function zeroLengthVectorOfNegativeDimension()
+    public function nullVectorOfNegativeDimension()
     {
-        Vector::zeroLengthVector(-5);
+        Vector::nullVector(-5);
     }
 
     /**
