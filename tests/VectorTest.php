@@ -27,6 +27,49 @@ class VectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Verify that a zero-length vector has zero length.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::length
+     * @covers ::zeroLengthVector
+     */
+    public function zeroLengthVectorHasZeroLength()
+    {
+        $vector = Vector::zeroLengthVector(3);
+        $this->assertSame(0.0, $vector->length());
+    }
+
+    /**
+     * Verify that a zero-length, zero-dimensional vector has zero length.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::length
+     * @covers ::zeroLengthVector
+     */
+    public function zeroLengthZeroDimensionalVectorHasZeroLength()
+    {
+        $vector = Vector::zeroLengthVector(0);
+        $this->assertSame(0.0, $vector->length());
+    }
+
+    /**
+     * Verify that a negative dimension fails for zeroLengthVector.
+     *
+     * @test
+     * @covers ::zeroLengthVector
+     * @expectedException Exception
+     * @expectedExceptionMessage Dimension must be zero or greater
+     */
+    public function zeroLengthVectorOfNegativeDimension()
+    {
+        Vector::zeroLengthVector(-5);
+    }
+
+    /**
      * Verify that the dimension of the vector is correct.
      *
      * @test

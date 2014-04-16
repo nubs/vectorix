@@ -27,6 +27,26 @@ class Vector
     }
 
     /**
+     * Creates a zero-length vector of the given dimension.
+     *
+     * @api
+     * @param int $dimension The dimension of the vector to create.  Must be at least 0.
+     * @return self The zero-length vector for the given dimension.
+     */
+    public static function zeroLengthVector($dimension)
+    {
+        if ($dimension < 0) {
+            throw new Exception('Dimension must be zero or greater');
+        }
+
+        if ($dimension === 0) {
+            return new static(array());
+        }
+
+        return new static(array_fill(0, $dimension, 0));
+    }
+
+    /**
      * Get the components of the vector.
      *
      * @api
