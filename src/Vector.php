@@ -138,7 +138,7 @@ class Vector
      *
      * @api
      * @param self $b The vector to multiply with.
-     * @return self The dot product of the two vectors.
+     * @return int|float The dot product of the two vectors.
      * @throws Exception if the vectors are not in the same vector space.
      * @see self::_checkVectorSpace() For exception information.
      */
