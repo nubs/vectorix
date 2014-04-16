@@ -9,3 +9,5 @@ A PHP vector library.
 [![Total Downloads](https://poser.pugx.org/nubs/vectorix/downloads.png)](https://packagist.org/packages/nubs/vectorix)
 [![Latest Unstable Version](https://poser.pugx.org/nubs/vectorix/v/unstable.png)](https://packagist.org/packages/nubs/vectorix)
 [![License](https://poser.pugx.org/nubs/vectorix/license.png)](https://packagist.org/packages/nubs/vectorix)
+
+[![Dependency Status](https://www.versioneye.com/user/projects/534eb34bfe0d071c050007ac/badge.png)](https://www.versioneye.com/user/projects/534eb34bfe0d071c050007ac)
