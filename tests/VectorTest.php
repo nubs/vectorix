@@ -379,12 +379,13 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::dotProduct
      */
-    public function dotProductOfZeroLengthVectors()
+    public function dotProductOfNullVectors()
     {
         $a = new Vector(array(2, 3));
-        $b = new Vector(array(0, 0));
+        $b = Vector::nullVector(2);
         $this->assertSame(0, $a->dotProduct($b));
     }
 
@@ -547,13 +548,14 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::divideByScalar
      * @uses \Nubs\Vectorix\Vector::length
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::normalize
      * @expectedException Exception
      * @expectedExceptionMessage Cannot divide by zero
      */
-    public function normalizeZeroLengthVector()
+    public function normalizeNullVector()
     {
-        $a = new Vector(array(0, 0, 0));
+        $a = Vector::nullVector(3);
         $a->normalize();
     }
 
@@ -595,11 +597,12 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::normalize
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::projectOnto
      */
-    public function projectZeroLengthVectorOntoSimpleVector()
+    public function projectNullVectorOntoSimpleVector()
     {
-        $a = new Vector(array(0, 0));
+        $a = Vector::nullVector(2);
         $b = new Vector(array(3, 3));
         $resultComponents = $a->projectOnto($b)->components();
         $this->assertEquals(0, $resultComponents[0], '', 1e-10);
@@ -615,14 +618,15 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::divideByScalar
      * @uses \Nubs\Vectorix\Vector::length
      * @uses \Nubs\Vectorix\Vector::normalize
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::projectOnto
      * @expectedException Exception
      * @expectedExceptionMessage Cannot divide by zero
      */
-    public function projectOntoZeroLengthVector()
+    public function projectOntoNullVector()
     {
         $a = new Vector(array(4, 0));
-        $b = new Vector(array(0, 0));
+        $b = Vector::nullVector(2);
         $a->projectOnto($b);
     }
 
