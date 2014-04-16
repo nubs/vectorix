@@ -221,6 +221,26 @@ class Vector
     }
 
     /**
+     * Returns the angle between the two vectors.
+     *
+     * @api
+     * @param self $b The vector to compute the angle between.
+     * @return float The angle between the two vectors in radians.
+     * @throws Exception if either of the vectors are zero-length.
+     * @throws Exception if the vectors are not in the same vector space.
+     * @see self::_checkVectorSpace() For exception information.
+     */
+    public function angleBetween(self $b)
+    {
+        $denominator = $this->length() * $b->length();
+        if ($denominator == 0) {
+            throw new Exception('Cannot divide by zero');
+        }
+
+        return acos($this->dotProduct($b) / $denominator);
+    }
+
+    /**
      * Checks that the vector spaces of the two vectors are the same.
      *
      * The vectors must be of the same dimension and have the same keys in their

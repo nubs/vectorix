@@ -677,4 +677,84 @@ class VectorTest extends PHPUnit_Framework_TestCase
         $b = new Vector(array('x' => 5, 'y' => 7));
         $a->projectOnto($b);
     }
+
+    /**
+     * Verify that the angle between two vectors is computed correctly.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::length
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @covers ::angleBetween
+     */
+    public function angleBetweenSimpleVectors()
+    {
+        $a = new Vector(array(0, 5));
+        $b = new Vector(array(3, 3));
+        $this->assertEquals(M_PI / 4, $a->angleBetween($b), '', 1e-10);
+    }
+
+    /**
+     * Verify that the angle between a vector and a zero-length vector fails.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::length
+     * @covers ::angleBetween
+     * @expectedException Exception
+     * @expectedExceptionMessage Cannot divide by zero
+     */
+    public function angleBetweenZeroLengthVector()
+    {
+        $a = new Vector(array(2, 4));
+        $b = new Vector(array(0, 0));
+        $a->angleBetween($b);
+    }
+
+    /**
+     * Verify that the angle between vectors of different dimensions fails.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::length
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @covers ::angleBetween
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors must be of the same dimension
+     */
+    public function angleBetweenVectorsOfDifferentDimension()
+    {
+        $a = new Vector(array(2, 4));
+        $b = new Vector(array(3));
+        $a->angleBetween($b);
+    }
+
+    /**
+     * Verify that the angle between vectors of differently keyed components
+     * fails.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::length
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @covers ::angleBetween
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors' components must have the same keys
+     */
+    public function angleBetweenDifferentlyKeyedVectors()
+    {
+        $a = new Vector(array(2, 4));
+        $b = new Vector(array('x' => 3, 'y' => 7));
+        $a->angleBetween($b);
+    }
 }
