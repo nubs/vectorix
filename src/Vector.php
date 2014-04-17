@@ -185,6 +185,22 @@ class Vector
     }
 
     /**
+     * Computes the scalar triple product of three vectors.
+     *
+     * @api
+     * @param self $b The second vector of the triple product.
+     * @param self $c The third vector of the triple product.
+     * @return int|float The scalar triple product of the three vectors.
+     * @throws Exception if the vectors are not 3-dimensional.
+     * @throws Exception if the vectors are not in the same vector space.
+     * @see self::_checkVectorSpace() For exception information.
+     */
+    public function scalarTripleProduct(self $b, self $c)
+    {
+        return $this->dotProduct($b->crossProduct($c));
+    }
+
+    /**
      * Multiplies the vector by the given scalar.
      *
      * @api
