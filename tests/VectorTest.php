@@ -434,6 +434,99 @@ class VectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Verify that the cross product of two simple vectors works.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::crossProduct
+     */
+    public function crossProductOfSimpleVectors()
+    {
+        $a = new Vector(array(2, 3, 4));
+        $b = new Vector(array(5, 6, 7));
+        $this->assertSame(array(-3, 6, -3), $a->crossProduct($b)->components());
+    }
+
+    /**
+     * Verify that the cross product of two codirectional vectors is a null
+     * vector.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::crossProduct
+     */
+    public function crossProductOfCodirectionalVectors()
+    {
+        $a = new Vector(array(2, 2, 2));
+        $b = new Vector(array(8, 8, 8));
+        $this->assertSame(array(0, 0, 0), $a->crossProduct($b)->components());
+    }
+
+    /**
+     * Verify that cross product fails with different dimension vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::crossProduct
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors must be of the same dimension
+     */
+    public function crossProductVectorsOfDifferentDimensions()
+    {
+        $a = new Vector(array(2, 5, 7));
+        $b = new Vector(array(1, 8));
+        $a->crossProduct($b);
+    }
+
+    /**
+     * Verify that cross product fails with vectors whose components' keys don't
+     * match.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::crossProduct
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors' components must have the same keys
+     */
+    public function crossProductVectorsWithDifferentlyKeyedComponents()
+    {
+        $a = new Vector(array(3, 2, 8));
+        $b = new Vector(array('x' => 8, 'y' => 9, 'z' => 0));
+        $a->crossProduct($b);
+    }
+
+    /**
+     * Verify that cross product fails with two-dimensional vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @covers ::crossProduct
+     * @expectedException Exception
+     * @expectedExceptionMessage Both vectors must be 3-dimensional
+     */
+    public function crossProductOfTwoDimensionalVectors()
+    {
+        $a = new Vector(array(7, 2));
+        $b = new Vector(array(1, 9));
+        $a->crossProduct($b);
+    }
+
+    /**
      * Verify that multiplication by a scalar works.
      *
      * @test

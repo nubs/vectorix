@@ -156,6 +156,35 @@ class Vector
     }
 
     /**
+     * Computes the cross product, or vector product, of two vectors.
+     *
+     * @api
+     * @param self $b The vector to multiply with.
+     * @return self The cross product of the two vectors.
+     * @throws Exception if the vectors are not 3-dimensional.
+     * @throws Exception if the vectors are not in the same vector space.
+     * @see self::_checkVectorSpace() For exception information.
+     */
+    public function crossProduct(self $b)
+    {
+        $this->_checkVectorSpace($b);
+        if ($this->dimension() !== 3) {
+            throw new Exception('Both vectors must be 3-dimensional');
+        }
+
+        $tc = $this->components();
+        $bc = $b->components();
+        list($k0, $k1, $k2) = array_keys($tc);
+        $product = array(
+            $k0 => $tc[$k1] * $bc[$k2] - $tc[$k2] * $bc[$k1],
+            $k1 => $tc[$k2] * $bc[$k0] - $tc[$k0] * $bc[$k2],
+            $k2 => $tc[$k0] * $bc[$k1] - $tc[$k1] * $bc[$k0],
+        );
+
+        return new static($product);
+    }
+
+    /**
      * Multiplies the vector by the given scalar.
      *
      * @api
