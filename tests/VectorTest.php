@@ -536,8 +536,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function multiplyByScalarWithSimpleValue()
     {
-        $a = new Vector(array(1, 2, 3));
-        $this->assertSame(array(3, 6, 9), $a->multiplyByScalar(3)->components());
+        $vector = new Vector(array(1, 2, 3));
+        $this->assertSame(array(3, 6, 9), $vector->multiplyByScalar(3)->components());
     }
 
     /**
@@ -551,8 +551,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function multiplyByScalarWithZeroDimensionalVector()
     {
-        $a = Vector::nullVector(0);
-        $this->assertSame(array(), $a->multiplyByScalar(3)->components());
+        $vector = Vector::nullVector(0);
+        $this->assertSame(array(), $vector->multiplyByScalar(3)->components());
     }
 
     /**
@@ -566,8 +566,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function divideByScalarWithSimpleValue()
     {
-        $a = new Vector(array(4, 8));
-        $resultComponents = $a->divideByScalar(4)->components();
+        $vector = new Vector(array(4, 8));
+        $resultComponents = $vector->divideByScalar(4)->components();
         $this->assertEquals(1.0, $resultComponents[0], '', 1e-10);
         $this->assertEquals(2.0, $resultComponents[1], '', 1e-10);
     }
@@ -584,8 +584,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function divideByScalarWithZeroDimensionalVector()
     {
-        $a = Vector::nullVector(0);
-        $this->assertSame(array(), $a->divideByScalar(3)->components());
+        $vector = Vector::nullVector(0);
+        $this->assertSame(array(), $vector->divideByScalar(3)->components());
     }
 
     /**
@@ -599,8 +599,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function divideByScalarZero()
     {
-        $a = new Vector(array(4, 8));
-        $a->divideByScalar(0);
+        $vector = new Vector(array(4, 8));
+        $vector->divideByScalar(0);
     }
 
     /**
@@ -616,8 +616,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function normalizeSimpleVector()
     {
-        $a = new Vector(array(1, 1));
-        $resultComponents = $a->normalize()->components();
+        $vector = new Vector(array(1, 1));
+        $resultComponents = $vector->normalize()->components();
         $this->assertEquals(sqrt(2) / 2, $resultComponents[0], '', 1e-10);
         $this->assertEquals(sqrt(2) / 2, $resultComponents[1], '', 1e-10);
     }
@@ -637,8 +637,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function normalizeZeroDimensionalVector()
     {
-        $a = Vector::nullVector(0);
-        $a->normalize();
+        $vector = Vector::nullVector(0);
+        $vector->normalize();
     }
 
     /**
@@ -656,8 +656,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function normalizeNullVector()
     {
-        $a = Vector::nullVector(3);
-        $a->normalize();
+        $vector = Vector::nullVector(3);
+        $vector->normalize();
     }
 
     /**
