@@ -634,6 +634,113 @@ class VectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Verify that the vector triple product works with simple vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @uses \Nubs\Vectorix\Vector::crossProduct
+     * @covers ::vectorTripleProduct
+     */
+    public function vectorTripleProductOfSimpleVectors()
+    {
+        $a = new Vector(array(-2, 3, 1));
+        $b = new Vector(array(0, 4, 0));
+        $c = new Vector(array(-1, 3, 3));
+        $this->assertSame(array(12, 20, -36), $a->vectorTripleProduct($b, $c)->components());
+    }
+
+    /**
+     * Verify that the vector triple product of two codirectional vectors is 0.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @uses \Nubs\Vectorix\Vector::crossProduct
+     * @covers ::vectorTripleProduct
+     */
+    public function vectorTripleProductOfCodirectionalVectors()
+    {
+        $a = new Vector(array(2, 2, 2));
+        $b = new Vector(array(8, 8, 8));
+        $c = new Vector(array(1, 1, 1));
+        $this->assertSame(array(0, 0, 0), $a->vectorTripleProduct($b, $c)->components());
+    }
+
+    /**
+     * Verify that vector triple product fails with different dimension vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @uses \Nubs\Vectorix\Vector::crossProduct
+     * @covers ::vectorTripleProduct
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors must be of the same dimension
+     */
+    public function vectorTripleProductVectorsOfDifferentDimensions()
+    {
+        $a = new Vector(array(2, 5, 7));
+        $b = new Vector(array(1, 8));
+        $c = new Vector(array(1, 8, 9, 14));
+        $a->vectorTripleProduct($b, $c);
+    }
+
+    /**
+     * Verify that vector triple product fails with vectors whose components'
+     * keys don't match.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @uses \Nubs\Vectorix\Vector::crossProduct
+     * @covers ::vectorTripleProduct
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors' components must have the same keys
+     */
+    public function vectorTripleProductVectorsWithDifferentlyKeyedComponents()
+    {
+        $a = new Vector(array(3, 2, 8));
+        $b = new Vector(array('x' => 8, 'y' => 9, 'z' => 0));
+        $c = new Vector(array('i' => 8, 'j' => 9, 'k' => 0));
+        $a->vectorTripleProduct($b, $c);
+    }
+
+    /**
+     * Verify that vector triple product fails with two-dimensional vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @uses \Nubs\Vectorix\Vector::crossProduct
+     * @covers ::vectorTripleProduct
+     * @expectedException Exception
+     * @expectedExceptionMessage Both vectors must be 3-dimensional
+     */
+    public function vectorTripleProductOfTwoDimensionalVectors()
+    {
+        $a = new Vector(array(7, 2));
+        $b = new Vector(array(1, 9));
+        $c = new Vector(array(0, 5));
+        $a->vectorTripleProduct($b, $c);
+    }
+
+    /**
      * Verify that multiplication by a scalar works.
      *
      * @test
