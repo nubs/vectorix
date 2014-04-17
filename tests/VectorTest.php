@@ -48,6 +48,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::__construct
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::length
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::nullVector
      */
     public function nullZeroDimensionalVectorHasZeroLength()
@@ -103,11 +104,12 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @test
      * @uses \Nubs\Vectorix\Vector::__construct
      * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::length
      */
     public function lengthOfZeroDimensionalVector()
     {
-        $vector = new Vector(array());
+        $vector = Vector::nullVector(0);
         $this->assertEquals(0.0, $vector->length(), '', 1e-10);
     }
 
@@ -167,13 +169,14 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::add
      * @covers ::_checkVectorSpace
      */
     public function addZeroDimensionalVectors()
     {
-        $a = new Vector(array());
-        $b = new Vector(array());
+        $a = Vector::nullVector(0);
+        $b = Vector::nullVector(0);
         $this->assertSame(array(), $a->add($b)->components());
     }
 
@@ -248,13 +251,14 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::add
      * @uses \Nubs\Vectorix\Vector::multiplyByScalar
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::subtract
      * @covers ::_checkVectorSpace
      */
     public function subtractZeroDimensionalVectors()
     {
-        $a = new Vector(array());
-        $b = new Vector(array());
+        $a = Vector::nullVector(0);
+        $b = Vector::nullVector(0);
         $this->assertSame(array(), $a->subtract($b)->components());
     }
 
@@ -362,12 +366,13 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::dotProduct
      */
     public function dotProductOfZeroDimensionalVectors()
     {
-        $a = new Vector(array());
-        $b = new Vector(array());
+        $a = Vector::nullVector(0);
+        $b = Vector::nullVector(0);
         $this->assertSame(0, $a->dotProduct($b));
     }
 
@@ -448,11 +453,12 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @test
      * @uses \Nubs\Vectorix\Vector::__construct
      * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::multiplyByScalar
      */
     public function multiplyByScalarWithZeroDimensionalVector()
     {
-        $a = new Vector(array());
+        $a = Vector::nullVector(0);
         $this->assertSame(array(), $a->multiplyByScalar(3)->components());
     }
 
@@ -480,11 +486,12 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::__construct
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::multiplyByScalar
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::divideByScalar
      */
     public function divideByScalarWithZeroDimensionalVector()
     {
-        $a = new Vector(array());
+        $a = Vector::nullVector(0);
         $this->assertSame(array(), $a->divideByScalar(3)->components());
     }
 
@@ -530,13 +537,14 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::divideByScalar
      * @uses \Nubs\Vectorix\Vector::length
+     * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::normalize
      * @expectedException Exception
      * @expectedExceptionMessage Cannot divide by zero
      */
     public function normalizeZeroDimensionalVector()
     {
-        $a = new Vector(array());
+        $a = Vector::nullVector(0);
         $a->normalize();
     }
 
