@@ -527,6 +527,113 @@ class VectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Verify that the scalar triple product works with simple vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @uses \Nubs\Vectorix\Vector::crossProduct
+     * @covers ::scalarTripleProduct
+     */
+    public function scalarTripleProductOfSimpleVectors()
+    {
+        $a = new Vector(array(-2, 3, 1));
+        $b = new Vector(array(0, 4, 0));
+        $c = new Vector(array(-1, 3, 3));
+        $this->assertSame(-20, $a->scalarTripleProduct($b, $c));
+    }
+
+    /**
+     * Verify that the scalar triple product of two codirectional vectors is 0.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @uses \Nubs\Vectorix\Vector::crossProduct
+     * @covers ::scalarTripleProduct
+     */
+    public function scalarTripleProductOfCodirectionalVectors()
+    {
+        $a = new Vector(array(2, 2, 2));
+        $b = new Vector(array(8, 8, 8));
+        $c = new Vector(array(1, 1, 1));
+        $this->assertSame(0, $a->scalarTripleProduct($b, $c));
+    }
+
+    /**
+     * Verify that scalar triple product fails with different dimension vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @uses \Nubs\Vectorix\Vector::crossProduct
+     * @covers ::scalarTripleProduct
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors must be of the same dimension
+     */
+    public function scalarTripleProductVectorsOfDifferentDimensions()
+    {
+        $a = new Vector(array(2, 5, 7));
+        $b = new Vector(array(1, 8));
+        $c = new Vector(array(1, 8, 9, 14));
+        $a->scalarTripleProduct($b, $c);
+    }
+
+    /**
+     * Verify that scalar triple product fails with vectors whose components'
+     * keys don't match.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @uses \Nubs\Vectorix\Vector::crossProduct
+     * @covers ::scalarTripleProduct
+     * @expectedException Exception
+     * @expectedExceptionMessage The vectors' components must have the same keys
+     */
+    public function scalarTripleProductVectorsWithDifferentlyKeyedComponents()
+    {
+        $a = new Vector(array(3, 2, 8));
+        $b = new Vector(array('x' => 8, 'y' => 9, 'z' => 0));
+        $c = new Vector(array('i' => 8, 'j' => 9, 'k' => 0));
+        $a->scalarTripleProduct($b, $c);
+    }
+
+    /**
+     * Verify that scalar triple product fails with two-dimensional vectors.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
+     * @uses \Nubs\Vectorix\Vector::dotProduct
+     * @uses \Nubs\Vectorix\Vector::crossProduct
+     * @covers ::scalarTripleProduct
+     * @expectedException Exception
+     * @expectedExceptionMessage Both vectors must be 3-dimensional
+     */
+    public function scalarTripleProductOfTwoDimensionalVectors()
+    {
+        $a = new Vector(array(7, 2));
+        $b = new Vector(array(1, 9));
+        $c = new Vector(array(0, 5));
+        $a->scalarTripleProduct($b, $c);
+    }
+
+    /**
      * Verify that multiplication by a scalar works.
      *
      * @test
@@ -536,8 +643,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function multiplyByScalarWithSimpleValue()
     {
-        $a = new Vector(array(1, 2, 3));
-        $this->assertSame(array(3, 6, 9), $a->multiplyByScalar(3)->components());
+        $vector = new Vector(array(1, 2, 3));
+        $this->assertSame(array(3, 6, 9), $vector->multiplyByScalar(3)->components());
     }
 
     /**
@@ -551,8 +658,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function multiplyByScalarWithZeroDimensionalVector()
     {
-        $a = Vector::nullVector(0);
-        $this->assertSame(array(), $a->multiplyByScalar(3)->components());
+        $vector = Vector::nullVector(0);
+        $this->assertSame(array(), $vector->multiplyByScalar(3)->components());
     }
 
     /**
@@ -566,8 +673,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function divideByScalarWithSimpleValue()
     {
-        $a = new Vector(array(4, 8));
-        $resultComponents = $a->divideByScalar(4)->components();
+        $vector = new Vector(array(4, 8));
+        $resultComponents = $vector->divideByScalar(4)->components();
         $this->assertEquals(1.0, $resultComponents[0], '', 1e-10);
         $this->assertEquals(2.0, $resultComponents[1], '', 1e-10);
     }
@@ -584,8 +691,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function divideByScalarWithZeroDimensionalVector()
     {
-        $a = Vector::nullVector(0);
-        $this->assertSame(array(), $a->divideByScalar(3)->components());
+        $vector = Vector::nullVector(0);
+        $this->assertSame(array(), $vector->divideByScalar(3)->components());
     }
 
     /**
@@ -599,8 +706,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function divideByScalarZero()
     {
-        $a = new Vector(array(4, 8));
-        $a->divideByScalar(0);
+        $vector = new Vector(array(4, 8));
+        $vector->divideByScalar(0);
     }
 
     /**
@@ -616,8 +723,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function normalizeSimpleVector()
     {
-        $a = new Vector(array(1, 1));
-        $resultComponents = $a->normalize()->components();
+        $vector = new Vector(array(1, 1));
+        $resultComponents = $vector->normalize()->components();
         $this->assertEquals(sqrt(2) / 2, $resultComponents[0], '', 1e-10);
         $this->assertEquals(sqrt(2) / 2, $resultComponents[1], '', 1e-10);
     }
@@ -637,8 +744,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function normalizeZeroDimensionalVector()
     {
-        $a = Vector::nullVector(0);
-        $a->normalize();
+        $vector = Vector::nullVector(0);
+        $vector->normalize();
     }
 
     /**
@@ -656,8 +763,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function normalizeNullVector()
     {
-        $a = Vector::nullVector(3);
-        $a->normalize();
+        $vector = Vector::nullVector(3);
+        $vector->normalize();
     }
 
     /**
