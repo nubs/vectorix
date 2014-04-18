@@ -11,3 +11,11 @@ A PHP vector library.
 [![License](https://poser.pugx.org/nubs/vectorix/license.png)](https://packagist.org/packages/nubs/vectorix)
 
 [![Dependency Status](https://www.versioneye.com/user/projects/534eb34bfe0d071c050007ac/badge.png)](https://www.versioneye.com/user/projects/534eb34bfe0d071c050007ac)
+
+## Requirements
+This library requires PHP 5.3, or newer.
+
+## Installation
+This package uses [composer](https://getcomposer.org) so you can just add
+`nubs\vectorix` as a dependency to your `composer.json` file.
+
