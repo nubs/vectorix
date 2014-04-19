@@ -106,3 +106,62 @@ var_dump($a->components());
 //   int(0)
 // }
 ```
+
+### Properties of a Vector
+
+#### Components
+```php
+/*
+ * @return array<int|float> The components of the vector.
+ */
+public function components()
+```
+
+The `components` method returns the components of the vector with keys kept
+intact. 
+```php
+$a = new \Nubs\Vectorix\Vector([7, 4]);
+var_dump($a->components());
+// array(2) {
+//   [0] =>
+//   int(7)
+//   [1] =>
+//   int(4)
+// }
+```
+
+#### Dimension
+```php
+/*
+ * @return int The dimension/cardinality of the vector.
+ */
+public function dimension()
+```
+
+The `dimension` of a vector is the number of components in it.  This is also
+referred to as "cardinality".
+```php
+$a = new \Nubs\Vectorix\Vector([5.2, 1.4]);
+var_dump($a->dimension());
+// int(2)
+```
+
+#### Length
+```php
+/*
+ * @return float The length/magnitude of the vector.
+ */
+public function length()
+```
+
+The `length`, or
+[magnitude](http://en.wikipedia.org/wiki/Magnitude_%28mathematics%29) of a
+vector is the distance from the origin to the point described by the vector.
+
+It is always returned as a floating point number.
+
+```php
+$a = new \Nubs\Vectorix\Vector([3, 4]);
+var_dump($a->length());
+// double(5)
+```
