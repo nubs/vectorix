@@ -165,3 +165,27 @@ $a = new \Nubs\Vectorix\Vector([3, 4]);
 var_dump($a->length());
 // double(5)
 ```
+
+### Tests
+
+#### isEqual
+```php
+/*
+ * @param self $b The vector to check for equality.
+ * @return bool True if the vectors are equal and false otherwise.
+ */
+public function isEqual(self $b)
+```
+
+The `isEqual` method tests to see if the two vectors are equal.  They are only
+equal if their components are identical (including same keys).
+```php
+$a = new \Nubs\Vectorix\Vector([1, 2]);
+$b = new \Nubs\Vectorix\Vector([1, 2]);
+$b = new \Nubs\Vectorix\Vector([5, 7]);
+
+var_dump($a->isEqual($b));
+// bool(true)
+
+var_dump($a->isEqual($c));
+// bool(false)
