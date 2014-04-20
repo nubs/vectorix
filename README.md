@@ -159,7 +159,6 @@ The `length`, or
 vector is the distance from the origin to the point described by the vector.
 
 It is always returned as a floating point number.
-
 ```php
 $a = new \Nubs\Vectorix\Vector([3, 4]);
 var_dump($a->length());
