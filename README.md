@@ -167,7 +167,7 @@ var_dump($a->length());
 
 ### Tests
 
-#### isEqual
+#### Equality
 ```php
 /*
  * @param self $b The vector to check for equality.
