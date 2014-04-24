@@ -188,3 +188,29 @@ var_dump($a->isEqual($b));
 
 var_dump($a->isEqual($c));
 // bool(false)
+
+### Basic Operations
+
+#### Addition
+
+#### Subtraction
+
+#### Scalar Multiplication
+
+#### Scalar Division
+
+#### Dot Product
+
+#### Cross Product
+
+### Other Operations
+
+#### Normalization
+
+#### Projection
+
+#### Scalar Triple Product
+
+#### Vector Triple Product
+
+#### Angle Between Vectors
