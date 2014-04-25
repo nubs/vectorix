@@ -212,7 +212,7 @@ components in the two vectors.
 $a = new \Nubs\Vectorix\Vector([7, -2]);
 $b = new \Nubs\Vectorix\Vector([-1, 5]);
 
-$c=$a->add($b);
+$c = $a->add($b);
 var_dump($c->components());
 // array(2) {
 //   [0] =>
