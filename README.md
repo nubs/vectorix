@@ -193,6 +193,33 @@ var_dump($a->isEqual($c));
 ### Basic Operations
 
 #### Addition
+```php
+/*
+ * @param self $b The vector to add.
+ * @return self The sum of the two vectors.
+ * @throws Exception if the vectors are not in the same vector space.
+ */
+public function add(self $b)
+```
+
+The `add` method performs vector
+[addition](http://en.wikipedia.org/wiki/Euclidean_vector#Addition_and_subtraction).
+The two vectors must belong to the same vector space.
+
+The result is a new vector where each component is the sum of the corresponding
+components in the two vectors.
+```php
+$a = new \Nubs\Vectorix\Vector([7, -2]);
+$b = new \Nubs\Vectorix\Vector([-1, 5]);
+
+$c=$a->add($b);
+var_dump($c->components());
+// array(2) {
+//   [0] =>
+//   int(6)
+//   [1] =>
+//   int(3)
+// }
 
 #### Subtraction
 
