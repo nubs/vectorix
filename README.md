@@ -188,6 +188,7 @@ var_dump($a->isEqual($b));
 
 var_dump($a->isEqual($c));
 // bool(false)
+```
 
 ### Basic Operations
 
