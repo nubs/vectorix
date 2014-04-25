@@ -181,7 +181,7 @@ equal if their components are identical (including same keys).
 ```php
 $a = new \Nubs\Vectorix\Vector([1, 2]);
 $b = new \Nubs\Vectorix\Vector([1, 2]);
-$b = new \Nubs\Vectorix\Vector([5, 7]);
+$c = new \Nubs\Vectorix\Vector([5, 7]);
 
 var_dump($a->isEqual($b));
 // bool(true)
