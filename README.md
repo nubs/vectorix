@@ -220,6 +220,7 @@ var_dump($c->components());
 //   [1] =>
 //   int(3)
 // }
+```
 
 #### Subtraction
 
