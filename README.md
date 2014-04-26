@@ -253,8 +253,68 @@ var_dump($c->components());
 ```
 
 #### Scalar Multiplication
+```php
+/*
+ * @param int|float $scalar The real number to multiply by.
+ * @return self The result of the multiplication.
+ */
+public function multiplyByScalar($scalar)
+```
+
+The `multiplyByScalar` function performs [scalar
+multiplication](http://en.wikipedia.org/wiki/Euclidean_vector#Scalar_multiplication)
+of a vector with a scalar value.
+
+The result is a new vector where each component is the multiplication of that
+component with the scalar value.
+```php
+$a = new \Nubs\Vectorix\Vector([2, 8, -1]);
+$b = 5;
+
+$c = $a->multiplyByScalar($b);
+var_dump($c->components());
+// array(3) {
+//   [0] =>
+//   int(10)
+//   [1] =>
+//   int(40)
+//   [2] =>
+//   int(-5)
+// }
+```
 
 #### Scalar Division
+```php
+/*
+ * @param int|float $scalar The real number to divide by.
+ * @return self The result of the division.
+ * @throws Exception if the $scalar is 0.
+ */
+public function divideByScalar($scalar)
+```
+
+The `divideByScalar` function performs scalar division of a vector with a
+scalar value.  This is the same as multiplying the vector by `1 / scalarValue`.
+
+Trying to divide by zero will throw an exception.
+
+The result is a new vector where each component is the division of that
+component with the scalar value.
+```php
+$a = new \Nubs\Vectorix\Vector([4, 12, -8]);
+$b = 2;
+
+$c = $a->divideByScalar($b);
+var_dump($c->components());
+// array(3) {
+//   [0] =>
+//   double(2)
+//   [1] =>
+//   double(6)
+//   [2] =>
+//   double(-4)
+// }
+```
 
 #### Dot Product
 
