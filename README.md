@@ -223,6 +223,34 @@ var_dump($c->components());
 ```
 
 #### Subtraction
+```php
+/*
+ * @param self $b The vector to subtract from this vector.
+ * @return self The difference of the two vectors.
+ * @throws Exception if the vectors are not in the same vector space.
+ */
+public function subtract(self $b)
+```
+
+The `subtract` method performs vector
+[subtraction](http://en.wikipedia.org/wiki/Euclidean_vector#Addition_and_subtraction).
+The two vectors must belong to the same vector space.
+
+The result is a new vector where each component is the difference of the
+corresponding components in the two vectors
+```php
+$a = new \Nubs\Vectorix\Vector([5, 7]);
+$b = new \Nubs\Vectorix\Vector([-1, 6]);
+
+$c = $a->subtract($b);
+var_dump($c->components());
+// array(2) {
+//   [0] =>
+//   int(6)
+//   [1] =>
+//   int(1)
+// }
+```
 
 #### Scalar Multiplication
 
