@@ -317,6 +317,24 @@ var_dump($c->components());
 ```
 
 #### Dot Product
+```php
+/*
+ * @param self $b The vector to multiply with.
+ * @return int|float The dot product of the two vectors.
+ * @throws Exception if the vectors are not in the same vector space.
+ */
+public function dotProduct(self $b)
+```
+
+The `dotProduct` method performs a [dot
+product](http://en.wikipedia.org/wiki/Dot_product) between two vectors.  The
+two vectors must belong to the same vector space.
+```php
+$a = new \Nubs\Vectorix\Vector([1, 3, -5]);
+$b = new \Nubs\Vectorix\Vector([4, -2, -1]);
+var_dump($a->dotProduct($b));
+// int(3)
+```
 
 #### Cross Product
 
