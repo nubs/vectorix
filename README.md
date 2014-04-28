@@ -337,6 +337,33 @@ var_dump($a->dotProduct($b));
 ```
 
 #### Cross Product
+```php
+/*
+ * @param self $b The vector to multiply with.
+ * @return self The cross product of the two vectors.
+ * @throws Exception if the vectors are not 3-dimensional.
+ * @throws Exception if the vectors are not in the same vector space.
+ */
+public function crossProduct(self $b)
+```
+
+The `crossProduct` method computes the [cross
+product](http://en.wikipedia.org/wiki/Cross_product) between two
+three-dimensional vectors.  The resulting vector is perpendicular to the plane
+containing the two vectors.
+```php
+$a = new \Nubs\Vectorix\Vector([2, 3, 4]);
+$b = new \Nubs\Vectorix\Vector([5, 6, 7]);
+var_dump($a->crossProduct($b));
+// array(3) {
+//   [0] =>
+//   int(-3)
+//   [1] =>
+//   int(6)
+//   [2] =>
+//   int(-3)
+// }
+```
 
 ### Other Operations
 
