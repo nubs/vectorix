@@ -368,6 +368,28 @@ var_dump($a->crossProduct($b));
 ### Other Operations
 
 #### Normalization
+```php
+/*
+ * @return self The normalized vector.
+ * @throws Exception if the vector length is zero.
+ */
+public function normalize()
+```
+
+The `normalize` method returns the [unit
+vector](http://en.wikipedia.org/wiki/Unit_vector) with the same direction as
+the original vector.
+
+```php
+$a = new \Nubs\Vectorix\Vector([3, 3]);
+$b = $a->normalize();
+var_dump($b->components());
+// array(2) {
+//   [0] =>
+//   double(0.70710678118655)
+//   [1] =>
+//   double(0.70710678118655)
+// }
 
 #### Projection
 
