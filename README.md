@@ -393,6 +393,33 @@ var_dump($b->components());
 // }
 
 #### Projection
+```php
+/**
+ * @param self $b The vector to project this vector onto.
+ * @return self The vector projection of this vector onto $b.
+ * @throws Exception if the vector length of $b is zero.
+ * @throws Exception if the vectors are not in the same vector space.
+ */
+public function projectOnto(self $b)
+/*
+```
+
+The `projectOnto` method computes the [vector
+projection](http://en.wikipedia.org/wiki/Vector_projection) of one vector onto
+another.  The resulting vector will be colinear with `$b`.
+```php
+$a = new \Nubs\Vectorix\Vector([4, 0]);
+$b = new \Nubs\Vectorix\Vector([3, 3]);
+
+$c = $a->projectOnto($b);
+var_dump($c->components());
+// array(2) {
+//   [0] =>
+//   double(2)
+//   [1] =>
+//   double(2)
+// }
+```
 
 #### Scalar Triple Product
 
