@@ -391,6 +391,7 @@ var_dump($b->components());
 //   [1] =>
 //   double(0.70710678118655)
 // }
+```
 
 #### Projection
 ```php
