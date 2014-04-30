@@ -379,7 +379,6 @@ public function normalize()
 The `normalize` method returns the [unit
 vector](http://en.wikipedia.org/wiki/Unit_vector) with the same direction as
 the original vector.
-
 ```php
 $a = new \Nubs\Vectorix\Vector([3, 3]);
 $b = $a->normalize();
