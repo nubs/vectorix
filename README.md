@@ -64,7 +64,7 @@ $e = $c->subtract($d);
 
 #### Constructor
 ```php
-/*
+/**
  * @param array<int|float> $components The components of the vector.
  */
 public function __construct(array $components)
@@ -83,7 +83,7 @@ $b = new \Nubs\Vectorix\Vector(['x' => 1.7, 'y' => -5.3]);
 
 #### Null Vectors
 ```php
-/*
+/**
  * @param int $dimension The dimension of the vector to create.  Must be at least 0.
  * @return self The zero-length vector for the given dimension.
  * @throws Exception if the dimension is less than zero.
@@ -111,7 +111,7 @@ var_dump($a->components());
 
 #### Components
 ```php
-/*
+/**
  * @return array<int|float> The components of the vector.
  */
 public function components()
@@ -132,7 +132,7 @@ var_dump($a->components());
 
 #### Dimension
 ```php
-/*
+/**
  * @return int The dimension/cardinality of the vector.
  */
 public function dimension()
@@ -148,7 +148,7 @@ var_dump($a->dimension());
 
 #### Length
 ```php
-/*
+/**
  * @return float The length/magnitude of the vector.
  */
 public function length()
@@ -169,7 +169,7 @@ var_dump($a->length());
 
 #### Equality
 ```php
-/*
+/**
  * @param self $b The vector to check for equality.
  * @return bool True if the vectors are equal and false otherwise.
  */
@@ -194,7 +194,7 @@ var_dump($a->isEqual($c));
 
 #### Addition
 ```php
-/*
+/**
  * @param self $b The vector to add.
  * @return self The sum of the two vectors.
  * @throws Exception if the vectors are not in the same vector space.
@@ -224,7 +224,7 @@ var_dump($c->components());
 
 #### Subtraction
 ```php
-/*
+/**
  * @param self $b The vector to subtract from this vector.
  * @return self The difference of the two vectors.
  * @throws Exception if the vectors are not in the same vector space.
@@ -254,7 +254,7 @@ var_dump($c->components());
 
 #### Scalar Multiplication
 ```php
-/*
+/**
  * @param int|float $scalar The real number to multiply by.
  * @return self The result of the multiplication.
  */
@@ -285,7 +285,7 @@ var_dump($c->components());
 
 #### Scalar Division
 ```php
-/*
+/**
  * @param int|float $scalar The real number to divide by.
  * @return self The result of the division.
  * @throws Exception if the $scalar is 0.
@@ -318,7 +318,7 @@ var_dump($c->components());
 
 #### Dot Product
 ```php
-/*
+/**
  * @param self $b The vector to multiply with.
  * @return int|float The dot product of the two vectors.
  * @throws Exception if the vectors are not in the same vector space.
@@ -338,7 +338,7 @@ var_dump($a->dotProduct($b));
 
 #### Cross Product
 ```php
-/*
+/**
  * @param self $b The vector to multiply with.
  * @return self The cross product of the two vectors.
  * @throws Exception if the vectors are not 3-dimensional.
@@ -369,7 +369,7 @@ var_dump($a->crossProduct($b));
 
 #### Normalization
 ```php
-/*
+/**
  * @return self The normalized vector.
  * @throws Exception if the vector length is zero.
  */
