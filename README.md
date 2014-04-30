@@ -354,7 +354,9 @@ containing the two vectors.
 ```php
 $a = new \Nubs\Vectorix\Vector([2, 3, 4]);
 $b = new \Nubs\Vectorix\Vector([5, 6, 7]);
-var_dump($a->crossProduct($b));
+
+$c = $a->crossProduct($b);
+var_dump($c->components());
 // array(3) {
 //   [0] =>
 //   int(-3)
