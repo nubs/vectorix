@@ -423,7 +423,61 @@ var_dump($c->components());
 ```
 
 #### Scalar Triple Product
+```php
+/**
+ * @param self $b The second vector of the triple product.
+ * @param self $c The third vector of the triple product.
+ * @return int|float The scalar triple product of the three vectors.
+ * @throws Exception if the vectors are not 3-dimensional.
+ * @throws Exception if the vectors are not in the same vector space.
+ */
+public function scalarTripleProduct(self $b, self $c)
+```
+
+The `scalarTripleProduct` method computes the [scalar triple
+product](http://en.wikipedia.org/wiki/Triple_product#Scalar_triple_product).
+This value represents the volume of the parallelepiped defined by the three
+vectors.
+
+```php
+$a = new \Nubs\Vectorix\Vector([-2, 3, 1]);
+$b = new \Nubs\Vectorix\Vector([0, 4, 0]);
+$c = new \Nubs\Vectorix\Vector([-1, 3, 3]);
+
+var_dump($a->scalarTripleProduct($b, $c));
+// int(-20)
+```
 
 #### Vector Triple Product
+```php
+/**
+ * @param self $b The second vector of the triple product.
+ * @param self $c The third vector of the triple product.
+ * @return self The vector triple product of the three vectors.
+ * @throws Exception if the vectors are not 3-dimensional.
+ * @throws Exception if the vectors are not in the same vector space.
+ */
+public function vectorTripleProduct(self $b, self $c)
+```
+
+The `vectorTripleProduct` method computes the [vector triple
+product](http://en.wikipedia.org/wiki/Triple_product#Vector_triple_product).
+
+```php
+$a = new \Nubs\Vectorix\Vector([-2, 3, 1]);
+$b = new \Nubs\Vectorix\Vector([0, 4, 0]);
+$c = new \Nubs\Vectorix\Vector([-1, 3, 3]);
+
+$d = $a->vectorTripleProduct($b, $c);
+var_dump($d->components());
+// array(3) {
+//   [0] =>
+//   int(12)
+//   [1] =>
+//   int(20)
+//   [2] =>
+//   int(-36)
+// }
+```
 
 #### Angle Between Vectors
