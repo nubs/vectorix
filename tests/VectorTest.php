@@ -9,7 +9,7 @@ use PHPUnit_Framework_TestCase;
 class VectorTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Verify that getComponents returns the same components the vector was
+     * Verify that components() returns the same components the vector was
      * constructed with.
      *
      * In particular, this makes sure that the keys are left alone.
