@@ -481,3 +481,21 @@ var_dump($d->components());
 ```
 
 #### Angle Between Vectors
+```php
+/**
+ * @param self $b The vector to compute the angle between.
+ * @return float The angle between the two vectors in radians.
+ * @throws Exception if either of the vectors are zero-length.
+ * @throws Exception if the vectors are not in the same vector space.
+ */
+public function angleBetween(self $b)
+```
+
+The `angleBetween` method computes the angle between two vectors in radians.
+
+```php
+$a = new \Nubs\Vectorix\Vector(array(0, 5));
+$b = new \Nubs\Vectorix\Vector(array(3, 3));
+var_dump($a->angleBetween($b));
+// double(0.78539816339745)
+```
