@@ -98,6 +98,18 @@ class Vector
     }
 
     /**
+     * Checks whether the two vectors are of the same dimension.
+     *
+     * @api
+     * @param self $b The vector to check against.
+     * @return bool True if the vectors are of the same dimension, false otherwise.
+     */
+    public function isSameDimension(self $b)
+    {
+        return $this->dimension() === $b->dimension();
+    }
+
+    /**
      * Adds two vectors together.
      *
      * @api

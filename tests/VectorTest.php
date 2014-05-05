@@ -144,6 +144,39 @@ class VectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Verify that 2 equal-dimension vectors are considered the same dimension.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @covers ::isSameDimension
+     */
+    public function isSameDimensionWithSameDimensionalVectors()
+    {
+        $a = new Vector(array(-1, 4, 1));
+        $b = new Vector(array(4, -9.3, 2.1));
+        $this->assertTrue($a->isSameDimension($b), 'Vectors with same-dimension are considered same dimension');
+    }
+
+    /**
+     * Verify that 2 different-dimension vectors are not considered the same
+     * dimension.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @uses \Nubs\Vectorix\Vector::dimension
+     * @covers ::isSameDimension
+     */
+    public function isSameDimensionWithDifferentDimensionalVectors()
+    {
+        $a = new Vector(array(1, 3));
+        $b = new Vector(array(4, 7, 1));
+        $this->assertFalse($a->isSameDimension($b), 'Vectors with different-dimension components are not considered same dimension');
+    }
+
+    /**
      * Verify that addition works as expected.
      *
      * @test
