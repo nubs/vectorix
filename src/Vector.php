@@ -343,7 +343,7 @@ class Vector
             throw new Exception('The vectors must be of the same dimension');
         }
 
-        if (array_keys($this->components()) !== array_keys($b->components())) {
+        if (!$this->isSameVectorSpace($b)) {
             throw new Exception('The vectors\' components must have the same keys');
         }
     }

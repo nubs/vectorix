@@ -232,6 +232,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::add
      * @covers ::_checkVectorSpace
@@ -251,6 +252,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::add
@@ -271,6 +273,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::add
      * @covers ::_checkVectorSpace
@@ -293,6 +296,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::add
      * @covers ::_checkVectorSpace
@@ -316,6 +320,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::add
      * @uses \Nubs\Vectorix\Vector::multiplyByScalar
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::subtract
      * @covers ::_checkVectorSpace
@@ -337,6 +342,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::add
      * @uses \Nubs\Vectorix\Vector::multiplyByScalar
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::subtract
@@ -359,6 +365,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::add
      * @uses \Nubs\Vectorix\Vector::multiplyByScalar
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::subtract
      * @covers ::_checkVectorSpace
@@ -383,6 +390,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::add
      * @uses \Nubs\Vectorix\Vector::multiplyByScalar
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::subtract
      * @covers ::_checkVectorSpace
@@ -404,6 +412,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::dotProduct
      */
@@ -422,6 +431,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::dotProduct
      */
@@ -440,6 +450,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::dotProduct
      */
@@ -458,6 +469,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::dotProduct
@@ -477,6 +489,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::nullVector
      * @covers ::dotProduct
@@ -496,6 +509,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::dotProduct
      * @expectedException Exception
@@ -517,6 +531,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::dotProduct
      * @expectedException Exception
@@ -537,6 +552,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::crossProduct
      */
@@ -556,6 +572,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::crossProduct
      */
@@ -574,6 +591,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::crossProduct
      * @expectedException Exception
@@ -595,6 +613,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::crossProduct
      * @expectedException Exception
@@ -615,6 +634,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @covers ::crossProduct
      * @expectedException Exception
@@ -635,6 +655,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @uses \Nubs\Vectorix\Vector::crossProduct
@@ -656,6 +677,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @uses \Nubs\Vectorix\Vector::crossProduct
@@ -677,6 +699,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @uses \Nubs\Vectorix\Vector::crossProduct
@@ -701,6 +724,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @uses \Nubs\Vectorix\Vector::crossProduct
@@ -724,6 +748,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @uses \Nubs\Vectorix\Vector::crossProduct
@@ -747,6 +772,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @uses \Nubs\Vectorix\Vector::crossProduct
@@ -768,6 +794,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @uses \Nubs\Vectorix\Vector::crossProduct
@@ -789,6 +816,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @uses \Nubs\Vectorix\Vector::crossProduct
@@ -813,6 +841,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @uses \Nubs\Vectorix\Vector::crossProduct
@@ -836,6 +865,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @uses \Nubs\Vectorix\Vector::crossProduct
@@ -997,6 +1027,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::length
      * @uses \Nubs\Vectorix\Vector::normalize
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @covers ::projectOnto
@@ -1023,6 +1054,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::length
      * @uses \Nubs\Vectorix\Vector::normalize
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @uses \Nubs\Vectorix\Vector::nullVector
@@ -1070,6 +1102,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::length
      * @uses \Nubs\Vectorix\Vector::normalize
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @covers ::projectOnto
@@ -1095,6 +1128,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::length
      * @uses \Nubs\Vectorix\Vector::normalize
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::dotProduct
      * @covers ::projectOnto
@@ -1116,6 +1150,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::length
      * @uses \Nubs\Vectorix\Vector::dotProduct
@@ -1154,6 +1189,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::length
      * @uses \Nubs\Vectorix\Vector::dotProduct
@@ -1177,6 +1213,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      * @uses \Nubs\Vectorix\Vector::components
      * @uses \Nubs\Vectorix\Vector::dimension
      * @uses \Nubs\Vectorix\Vector::isSameDimension
+     * @uses \Nubs\Vectorix\Vector::isSameVectorSpace
      * @uses \Nubs\Vectorix\Vector::_checkVectorSpace
      * @uses \Nubs\Vectorix\Vector::length
      * @uses \Nubs\Vectorix\Vector::dotProduct
