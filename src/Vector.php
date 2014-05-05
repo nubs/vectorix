@@ -327,7 +327,7 @@ class Vector
      */
     protected function _checkVectorSpace(self $b)
     {
-        if ($this->dimension() !== $b->dimension()) {
+        if (!$this->isSameDimension($b)) {
             throw new Exception('The vectors must be of the same dimension');
         }
 
