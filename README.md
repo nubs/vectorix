@@ -190,6 +190,59 @@ var_dump($a->isEqual($c));
 // bool(false)
 ```
 
+#### Same Dimension
+```php
+/**
+ * @param self $b The vector to check against.
+ * @return bool True if the vectors are of the same dimension, false otherwise.
+ */
+public function isSameDimension(self $b)
+```
+
+The `isSameDimension` method tests to see if the two vectors both have the same
+dimension.
+```php
+$a = new \Nubs\Vectorix\Vector([1, 2]);
+$b = new \Nubs\Vectorix\Vector([5, 1]);
+$c = new \Nubs\Vectorix\Vector([5, 8, 2]);
+
+var_dump($a->isSameDimension($b));
+// bool(true)
+
+var_dump($a->isSameDimension($c));
+// bool(false)
+```
+
+#### Same Vector Space
+```php
+/**
+ * @param self $b The vector to check against.
+ * @return bool True if the vectors are the same vector space, false otherwise.
+ */
+public function isSameVectorSpace(self $b)
+```
+
+The `isSameVectorSpace` method tests to see if the two vectors both belong to
+the same vector space.
+
+The vector space is defined in this library by the dimension of the vectors,
+and the keys of the vectors' components.
+```php
+$a = new \Nubs\Vectorix\Vector([1, 2]);
+$b = new \Nubs\Vectorix\Vector([5, 1]);
+$c = new \Nubs\Vectorix\Vector([2, 1, 7]);
+$d = new \Nubs\Vectorix\Vector(['x' => 3, 'y' => 2]);
+
+var_dump($a->isSameVectorSpace($b));
+// bool(true)
+
+var_dump($a->isSameVectorSpace($c));
+// bool(false)
+
+var_dump($a->isSameVectorSpace($d));
+// bool(false)
+```
+
 ### Basic Operations
 
 #### Addition
