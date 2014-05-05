@@ -177,6 +177,54 @@ class VectorTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Verify that 2 same vector space vectors are considered the same vector
+     * space.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @covers ::isSameVectorSpace
+     */
+    public function isSameVectorSpaceWithSameVectorSpaceVectors()
+    {
+        $a = new Vector(array('x' => -1, 'y' => 4, 'z' => 1));
+        $b = new Vector(array('x' => 4, 'y' => -9.3, 'z' => 2.1));
+        $this->assertTrue($a->isSameVectorSpace($b), 'Vectors with same vector space are considered same vector space');
+    }
+
+    /**
+     * Verify that 2 different-dimension vectors are not considered the same
+     * vector space.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @covers ::isSameVectorSpace
+     */
+    public function isSameVectorSpaceWithDifferentDimensionalVectors()
+    {
+        $a = new Vector(array(1, 3));
+        $b = new Vector(array(4, 7, 1));
+        $this->assertFalse($a->isSameVectorSpace($b), 'Vectors with different-dimension components are not considered same vector space');
+    }
+
+    /**
+     * Verify that 2 differently keyed vectors are not considered the same
+     * vector space.
+     *
+     * @test
+     * @uses \Nubs\Vectorix\Vector::__construct
+     * @uses \Nubs\Vectorix\Vector::components
+     * @covers ::isSameVectorSpace
+     */
+    public function isSameVectorSpaceWithDifferentKeyedVectors()
+    {
+        $a = new Vector(array(1, 2, 3));
+        $b = new Vector(array('x' => 4, 'y' => 7, 'z' => 1));
+        $this->assertFalse($a->isSameVectorSpace($b), 'Vectors with differently keyed components are not considered same vector space');
+    }
+
+    /**
      * Verify that addition works as expected.
      *
      * @test

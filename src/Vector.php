@@ -110,6 +110,18 @@ class Vector
     }
 
     /**
+     * Checks whether the two vectors are of the same vector space.
+     *
+     * @api
+     * @param self $b The vector to check against.
+     * @return bool True if the vectors are the same vector space, false otherwise.
+     */
+    public function isSameVectorSpace(self $b)
+    {
+        return array_keys($this->components()) === array_keys($b->components());
+    }
+
+    /**
      * Adds two vectors together.
      *
      * @api
