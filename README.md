@@ -1,16 +1,15 @@
 # vectorix
 A PHP vector library.
 
-[![Build Status](https://travis-ci.org/nubs/vectorix.png)](https://travis-ci.org/nubs/vectorix)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nubs/vectorix/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/nubs/vectorix/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/nubs/vectorix/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/nubs/vectorix/?branch=master)
+[![Build Status](http://img.shields.io/travis/nubs/vectorix.svg?style=flat)](https://travis-ci.org/nubs/vectorix)
+[![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/nubs/vectorix.svg?style=flat)](https://scrutinizer-ci.com/g/nubs/vectorix/)
+[![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/nubs/vectorix.svg?style=flat)](https://scrutinizer-ci.com/g/nubs/vectorix/)
 
-[![Latest Stable Version](https://poser.pugx.org/nubs/vectorix/v/stable.png)](https://packagist.org/packages/nubs/vectorix)
-[![Total Downloads](https://poser.pugx.org/nubs/vectorix/downloads.png)](https://packagist.org/packages/nubs/vectorix)
-[![Latest Unstable Version](https://poser.pugx.org/nubs/vectorix/v/unstable.png)](https://packagist.org/packages/nubs/vectorix)
-[![License](https://poser.pugx.org/nubs/vectorix/license.png)](https://packagist.org/packages/nubs/vectorix)
+[![Latest Stable Version](http://img.shields.io/packagist/v/nubs/vectorix.svg?style=flat)](https://packagist.org/packages/nubs/vectorix)
+[![Total Downloads](http://img.shields.io/packagist/dt/nubs/vectorix.svg?style=flat)](https://packagist.org/packages/nubs/vectorix)
+[![License](http://img.shields.io/packagist/l/nubs/vectorix.svg?style=flat)](https://packagist.org/packages/nubs/vectorix)
 
-[![Dependency Status](https://www.versioneye.com/user/projects/534eb34bfe0d071c050007ac/badge.png)](https://www.versioneye.com/user/projects/534eb34bfe0d071c050007ac)
+[![Dependency Status](https://www.versioneye.com/user/projects/534eb34bfe0d071c050007ac/badge.svg?style=flat)](https://www.versioneye.com/user/projects/534eb34bfe0d071c050007ac)
 
 ## Requirements
 This library requires PHP 5.3, or newer.
