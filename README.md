@@ -16,7 +16,12 @@ This library requires PHP 5.3, or newer.
 
 ## Installation
 This package uses [composer](https://getcomposer.org) so you can just add
-`nubs\vectorix` as a dependency to your `composer.json` file.
+`nubs/vectorix` as a dependency to your `composer.json` file or execute the
+following command:
+
+```bash
+composer require nubs/vectorix
+```
 
 ## Vector
 The [`Vector`](src/Vector.php) class represents an immutable [Euclidean
