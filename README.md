@@ -3,7 +3,7 @@ A PHP vector library.
 
 [![Build Status](http://img.shields.io/travis/nubs/vectorix.svg?style=flat)](https://travis-ci.org/nubs/vectorix)
 [![Scrutinizer Code Quality](http://img.shields.io/scrutinizer/g/nubs/vectorix.svg?style=flat)](https://scrutinizer-ci.com/g/nubs/vectorix/)
-[![Code Coverage](http://img.shields.io/scrutinizer/coverage/g/nubs/vectorix.svg?style=flat)](https://scrutinizer-ci.com/g/nubs/vectorix/)
+[![Code Coverage](http://img.shields.io/coveralls/nubs/vectorix.svg?style=flat)](https://coveralls.io/r/nubs/vectorix)
 
 [![Latest Stable Version](http://img.shields.io/packagist/v/nubs/vectorix.svg?style=flat)](https://packagist.org/packages/nubs/vectorix)
 [![Total Downloads](http://img.shields.io/packagist/dt/nubs/vectorix.svg?style=flat)](https://packagist.org/packages/nubs/vectorix)
