@@ -556,3 +556,7 @@ $b = new \Nubs\Vectorix\Vector(array(3, 3));
 var_dump($a->angleBetween($b));
 // double(0.78539816339745)
 ```
+
+## License
+vectorix is licensed under the MIT license.  See [LICENSE](LICENSE) for the
+full license text.
