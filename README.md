@@ -12,7 +12,7 @@ A PHP vector library.
 [![Dependency Status](https://www.versioneye.com/user/projects/534eb34bfe0d071c050007ac/badge.svg?style=flat)](https://www.versioneye.com/user/projects/534eb34bfe0d071c050007ac)
 
 ## Requirements
-This library requires PHP 5.4, or newer.
+This library requires PHP 5.5, or newer.
 
 ## Installation
 This package uses [composer](https://getcomposer.org) so you can just add
