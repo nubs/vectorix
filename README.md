@@ -61,7 +61,8 @@ var_dump($c->components());
 $d = new \Nubs\Vectorix\Vector([5, 9]);
 
 $e = $c->subtract($d);
-// PHP Fatal error:  Uncaught exception 'Exception' with message 'The vectors' components must have the same keys'
+// PHP Fatal error:  Uncaught exception 'Exception' with message 'The vectors'
+// components must have the same keys'
 ```
 
 ### Creating a Vector
