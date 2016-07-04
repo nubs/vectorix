@@ -41,7 +41,7 @@ class Vector
         }
 
         if ($dimension === 0) {
-            return new static(array());
+            return new static([]);
         }
 
         return new static(array_fill(0, $dimension, 0));
@@ -135,7 +135,7 @@ class Vector
         $this->_checkVectorSpace($b);
 
         $bComponents = $b->components();
-        $sum = array();
+        $sum = [];
         foreach ($this->components() as $i => $component) {
             $sum[$i] = $component + $bComponents[$i];
         }
@@ -199,11 +199,11 @@ class Vector
         $tc = $this->components();
         $bc = $b->components();
         list($k0, $k1, $k2) = array_keys($tc);
-        $product = array(
+        $product = [
             $k0 => $tc[$k1] * $bc[$k2] - $tc[$k2] * $bc[$k1],
             $k1 => $tc[$k2] * $bc[$k0] - $tc[$k0] * $bc[$k2],
             $k2 => $tc[$k0] * $bc[$k1] - $tc[$k1] * $bc[$k0],
-        );
+        ];
 
         return new static($product);
     }
@@ -249,7 +249,7 @@ class Vector
      */
     public function multiplyByScalar($scalar)
     {
-        $result = array();
+        $result = [];
         foreach ($this->components() as $i => $component) {
             $result[$i] = $component * $scalar;
         }
