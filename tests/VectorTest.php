@@ -20,7 +20,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function componentsMaintainStructure()
     {
-        $components = array(5, 2.4, 'z' => 1.773);
+        $components = [5, 2.4, 'z' => 1.773];
         $vector = new Vector($components);
 
         $this->assertSame($components, $vector->components());
@@ -80,7 +80,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function dimensionIsCorrect()
     {
-        $vector = new Vector(array(1, 0, 0));
+        $vector = new Vector([1, 0, 0]);
         $this->assertSame(3, $vector->dimension());
     }
 
@@ -94,7 +94,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function lengthIsCorrect()
     {
-        $vector = new Vector(array(3, 4));
+        $vector = new Vector([3, 4]);
         $this->assertEquals(5.0, $vector->length(), '', 1e-10);
     }
 
@@ -123,8 +123,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function isEqualWithSameVectors()
     {
-        $a = new Vector(array(1, 2, 3));
-        $b = new Vector(array(1, 2, 3));
+        $a = new Vector([1, 2, 3]);
+        $b = new Vector([1, 2, 3]);
         $this->assertTrue($a->isEqual($b), 'Vectors with same components are equal');
     }
 
@@ -138,8 +138,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function isEqualWithDifferentVectors()
     {
-        $a = new Vector(array(1, 2, 3));
-        $b = new Vector(array(9, 2, 3));
+        $a = new Vector([1, 2, 3]);
+        $b = new Vector([9, 2, 3]);
         $this->assertFalse($a->isEqual($b), 'Vectors with different components are not equal');
     }
 
@@ -154,8 +154,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function isSameDimensionWithSameDimensionalVectors()
     {
-        $a = new Vector(array(-1, 4, 1));
-        $b = new Vector(array(4, -9.3, 2.1));
+        $a = new Vector([-1, 4, 1]);
+        $b = new Vector([4, -9.3, 2.1]);
         $this->assertTrue($a->isSameDimension($b), 'Vectors with same-dimension are considered same dimension');
     }
 
@@ -171,8 +171,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function isSameDimensionWithDifferentDimensionalVectors()
     {
-        $a = new Vector(array(1, 3));
-        $b = new Vector(array(4, 7, 1));
+        $a = new Vector([1, 3]);
+        $b = new Vector([4, 7, 1]);
         $this->assertFalse($a->isSameDimension($b), 'Vectors with different-dimension components are not considered same dimension');
     }
 
@@ -187,8 +187,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function isSameVectorSpaceWithSameVectorSpaceVectors()
     {
-        $a = new Vector(array('x' => -1, 'y' => 4, 'z' => 1));
-        $b = new Vector(array('x' => 4, 'y' => -9.3, 'z' => 2.1));
+        $a = new Vector(['x' => -1, 'y' => 4, 'z' => 1]);
+        $b = new Vector(['x' => 4, 'y' => -9.3, 'z' => 2.1]);
         $this->assertTrue($a->isSameVectorSpace($b), 'Vectors with same vector space are considered same vector space');
     }
 
@@ -203,8 +203,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function isSameVectorSpaceWithDifferentDimensionalVectors()
     {
-        $a = new Vector(array(1, 3));
-        $b = new Vector(array(4, 7, 1));
+        $a = new Vector([1, 3]);
+        $b = new Vector([4, 7, 1]);
         $this->assertFalse($a->isSameVectorSpace($b), 'Vectors with different-dimension components are not considered same vector space');
     }
 
@@ -219,8 +219,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function isSameVectorSpaceWithDifferentKeyedVectors()
     {
-        $a = new Vector(array(1, 2, 3));
-        $b = new Vector(array('x' => 4, 'y' => 7, 'z' => 1));
+        $a = new Vector([1, 2, 3]);
+        $b = new Vector(['x' => 4, 'y' => 7, 'z' => 1]);
         $this->assertFalse($a->isSameVectorSpace($b), 'Vectors with differently keyed components are not considered same vector space');
     }
 
@@ -239,9 +239,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function addAnotherVector()
     {
-        $a = new Vector(array(1, 2, 3));
-        $b = new Vector(array(4, 5, 6));
-        $this->assertSame(array(5, 7, 9), $a->add($b)->components());
+        $a = new Vector([1, 2, 3]);
+        $b = new Vector([4, 5, 6]);
+        $this->assertSame([5, 7, 9], $a->add($b)->components());
     }
 
     /**
@@ -262,7 +262,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
     {
         $a = Vector::nullVector(0);
         $b = Vector::nullVector(0);
-        $this->assertSame(array(), $a->add($b)->components());
+        $this->assertSame([], $a->add($b)->components());
     }
 
     /**
@@ -282,8 +282,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function addVectorsOfDifferentDimensions()
     {
-        $a = new Vector(array(1, 2, 3));
-        $b = new Vector(array(4, 5));
+        $a = new Vector([1, 2, 3]);
+        $b = new Vector([4, 5]);
         $a->add($b);
     }
 
@@ -305,8 +305,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function addVectorsWithDifferentlyKeyedComponents()
     {
-        $a = new Vector(array(1, 2, 3));
-        $b = new Vector(array('x' => 4, 'y' => 5, 'z' => 6));
+        $a = new Vector([1, 2, 3]);
+        $b = new Vector(['x' => 4, 'y' => 5, 'z' => 6]);
         $a->add($b);
     }
 
@@ -327,9 +327,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function subtractAnotherVector()
     {
-        $a = new Vector(array(4, 5, 6));
-        $b = new Vector(array(1, 2, 3));
-        $this->assertSame(array(3, 3, 3), $a->subtract($b)->components());
+        $a = new Vector([4, 5, 6]);
+        $b = new Vector([1, 2, 3]);
+        $this->assertSame([3, 3, 3], $a->subtract($b)->components());
     }
 
     /**
@@ -352,7 +352,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
     {
         $a = Vector::nullVector(0);
         $b = Vector::nullVector(0);
-        $this->assertSame(array(), $a->subtract($b)->components());
+        $this->assertSame([], $a->subtract($b)->components());
     }
 
     /**
@@ -374,8 +374,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function subtractVectorsOfDifferentDimensions()
     {
-        $a = new Vector(array(4, 5, 6));
-        $b = new Vector(array(1, 2));
+        $a = new Vector([4, 5, 6]);
+        $b = new Vector([1, 2]);
         $a->subtract($b);
     }
 
@@ -399,8 +399,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function subtractVectorsWithDifferentlyKeyedComponents()
     {
-        $a = new Vector(array(4, 5, 6));
-        $b = new Vector(array('x' => 1, 'y' => 2, 'z' => 3));
+        $a = new Vector([4, 5, 6]);
+        $b = new Vector(['x' => 1, 'y' => 2, 'z' => 3]);
         $a->subtract($b);
     }
 
@@ -418,8 +418,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function dotProductOfSimpleVectors()
     {
-        $a = new Vector(array(1, 3, -5));
-        $b = new Vector(array(4, -2, -1));
+        $a = new Vector([1, 3, -5]);
+        $b = new Vector([4, -2, -1]);
         $this->assertSame(3, $a->dotProduct($b));
     }
 
@@ -437,8 +437,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function dotProductOfPerpendicularVectors()
     {
-        $a = new Vector(array(4, 4));
-        $b = new Vector(array(4, -4));
+        $a = new Vector([4, 4]);
+        $b = new Vector([4, -4]);
         $this->assertSame(0, $a->dotProduct($b));
     }
 
@@ -456,8 +456,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function dotProductOfCodirectionalVectors()
     {
-        $a = new Vector(array(2, 2));
-        $b = new Vector(array(8, 8));
+        $a = new Vector([2, 2]);
+        $b = new Vector([8, 8]);
         $this->assertSame(32, $a->dotProduct($b));
     }
 
@@ -496,7 +496,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function dotProductOfNullVectors()
     {
-        $a = new Vector(array(2, 3));
+        $a = new Vector([2, 3]);
         $b = Vector::nullVector(2);
         $this->assertSame(0, $a->dotProduct($b));
     }
@@ -517,8 +517,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function dotProductVectorsOfDifferentDimensions()
     {
-        $a = new Vector(array(1, 2, 3));
-        $b = new Vector(array(4, 5));
+        $a = new Vector([1, 2, 3]);
+        $b = new Vector([4, 5]);
         $a->dotProduct($b);
     }
 
@@ -539,8 +539,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function dotProductVectorsWithDifferentlyKeyedComponents()
     {
-        $a = new Vector(array(1, 2, 3));
-        $b = new Vector(array('x' => 4, 'y' => 5, 'z' => 6));
+        $a = new Vector([1, 2, 3]);
+        $b = new Vector(['x' => 4, 'y' => 5, 'z' => 6]);
         $a->dotProduct($b);
     }
 
@@ -558,9 +558,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function crossProductOfSimpleVectors()
     {
-        $a = new Vector(array(2, 3, 4));
-        $b = new Vector(array(5, 6, 7));
-        $this->assertSame(array(-3, 6, -3), $a->crossProduct($b)->components());
+        $a = new Vector([2, 3, 4]);
+        $b = new Vector([5, 6, 7]);
+        $this->assertSame([-3, 6, -3], $a->crossProduct($b)->components());
     }
 
     /**
@@ -578,9 +578,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function crossProductOfCodirectionalVectors()
     {
-        $a = new Vector(array(2, 2, 2));
-        $b = new Vector(array(8, 8, 8));
-        $this->assertSame(array(0, 0, 0), $a->crossProduct($b)->components());
+        $a = new Vector([2, 2, 2]);
+        $b = new Vector([8, 8, 8]);
+        $this->assertSame([0, 0, 0], $a->crossProduct($b)->components());
     }
 
     /**
@@ -599,8 +599,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function crossProductVectorsOfDifferentDimensions()
     {
-        $a = new Vector(array(2, 5, 7));
-        $b = new Vector(array(1, 8));
+        $a = new Vector([2, 5, 7]);
+        $b = new Vector([1, 8]);
         $a->crossProduct($b);
     }
 
@@ -621,8 +621,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function crossProductVectorsWithDifferentlyKeyedComponents()
     {
-        $a = new Vector(array(3, 2, 8));
-        $b = new Vector(array('x' => 8, 'y' => 9, 'z' => 0));
+        $a = new Vector([3, 2, 8]);
+        $b = new Vector(['x' => 8, 'y' => 9, 'z' => 0]);
         $a->crossProduct($b);
     }
 
@@ -642,8 +642,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function crossProductOfTwoDimensionalVectors()
     {
-        $a = new Vector(array(7, 2));
-        $b = new Vector(array(1, 9));
+        $a = new Vector([7, 2]);
+        $b = new Vector([1, 9]);
         $a->crossProduct($b);
     }
 
@@ -663,9 +663,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function scalarTripleProductOfSimpleVectors()
     {
-        $a = new Vector(array(-2, 3, 1));
-        $b = new Vector(array(0, 4, 0));
-        $c = new Vector(array(-1, 3, 3));
+        $a = new Vector([-2, 3, 1]);
+        $b = new Vector([0, 4, 0]);
+        $c = new Vector([-1, 3, 3]);
         $this->assertSame(-20, $a->scalarTripleProduct($b, $c));
     }
 
@@ -685,9 +685,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function scalarTripleProductOfCodirectionalVectors()
     {
-        $a = new Vector(array(2, 2, 2));
-        $b = new Vector(array(8, 8, 8));
-        $c = new Vector(array(1, 1, 1));
+        $a = new Vector([2, 2, 2]);
+        $b = new Vector([8, 8, 8]);
+        $c = new Vector([1, 1, 1]);
         $this->assertSame(0, $a->scalarTripleProduct($b, $c));
     }
 
@@ -709,9 +709,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function scalarTripleProductVectorsOfDifferentDimensions()
     {
-        $a = new Vector(array(2, 5, 7));
-        $b = new Vector(array(1, 8));
-        $c = new Vector(array(1, 8, 9, 14));
+        $a = new Vector([2, 5, 7]);
+        $b = new Vector([1, 8]);
+        $c = new Vector([1, 8, 9, 14]);
         $a->scalarTripleProduct($b, $c);
     }
 
@@ -734,9 +734,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function scalarTripleProductVectorsWithDifferentlyKeyedComponents()
     {
-        $a = new Vector(array(3, 2, 8));
-        $b = new Vector(array('x' => 8, 'y' => 9, 'z' => 0));
-        $c = new Vector(array('i' => 8, 'j' => 9, 'k' => 0));
+        $a = new Vector([3, 2, 8]);
+        $b = new Vector(['x' => 8, 'y' => 9, 'z' => 0]);
+        $c = new Vector(['i' => 8, 'j' => 9, 'k' => 0]);
         $a->scalarTripleProduct($b, $c);
     }
 
@@ -758,9 +758,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function scalarTripleProductOfTwoDimensionalVectors()
     {
-        $a = new Vector(array(7, 2));
-        $b = new Vector(array(1, 9));
-        $c = new Vector(array(0, 5));
+        $a = new Vector([7, 2]);
+        $b = new Vector([1, 9]);
+        $c = new Vector([0, 5]);
         $a->scalarTripleProduct($b, $c);
     }
 
@@ -780,10 +780,10 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function vectorTripleProductOfSimpleVectors()
     {
-        $a = new Vector(array(-2, 3, 1));
-        $b = new Vector(array(0, 4, 0));
-        $c = new Vector(array(-1, 3, 3));
-        $this->assertSame(array(12, 20, -36), $a->vectorTripleProduct($b, $c)->components());
+        $a = new Vector([-2, 3, 1]);
+        $b = new Vector([0, 4, 0]);
+        $c = new Vector([-1, 3, 3]);
+        $this->assertSame([12, 20, -36], $a->vectorTripleProduct($b, $c)->components());
     }
 
     /**
@@ -802,10 +802,10 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function vectorTripleProductOfCodirectionalVectors()
     {
-        $a = new Vector(array(2, 2, 2));
-        $b = new Vector(array(8, 8, 8));
-        $c = new Vector(array(1, 1, 1));
-        $this->assertSame(array(0, 0, 0), $a->vectorTripleProduct($b, $c)->components());
+        $a = new Vector([2, 2, 2]);
+        $b = new Vector([8, 8, 8]);
+        $c = new Vector([1, 1, 1]);
+        $this->assertSame([0, 0, 0], $a->vectorTripleProduct($b, $c)->components());
     }
 
     /**
@@ -826,9 +826,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function vectorTripleProductVectorsOfDifferentDimensions()
     {
-        $a = new Vector(array(2, 5, 7));
-        $b = new Vector(array(1, 8));
-        $c = new Vector(array(1, 8, 9, 14));
+        $a = new Vector([2, 5, 7]);
+        $b = new Vector([1, 8]);
+        $c = new Vector([1, 8, 9, 14]);
         $a->vectorTripleProduct($b, $c);
     }
 
@@ -851,9 +851,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function vectorTripleProductVectorsWithDifferentlyKeyedComponents()
     {
-        $a = new Vector(array(3, 2, 8));
-        $b = new Vector(array('x' => 8, 'y' => 9, 'z' => 0));
-        $c = new Vector(array('i' => 8, 'j' => 9, 'k' => 0));
+        $a = new Vector([3, 2, 8]);
+        $b = new Vector(['x' => 8, 'y' => 9, 'z' => 0]);
+        $c = new Vector(['i' => 8, 'j' => 9, 'k' => 0]);
         $a->vectorTripleProduct($b, $c);
     }
 
@@ -875,9 +875,9 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function vectorTripleProductOfTwoDimensionalVectors()
     {
-        $a = new Vector(array(7, 2));
-        $b = new Vector(array(1, 9));
-        $c = new Vector(array(0, 5));
+        $a = new Vector([7, 2]);
+        $b = new Vector([1, 9]);
+        $c = new Vector([0, 5]);
         $a->vectorTripleProduct($b, $c);
     }
 
@@ -891,8 +891,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function multiplyByScalarWithSimpleValue()
     {
-        $vector = new Vector(array(1, 2, 3));
-        $this->assertSame(array(3, 6, 9), $vector->multiplyByScalar(3)->components());
+        $vector = new Vector([1, 2, 3]);
+        $this->assertSame([3, 6, 9], $vector->multiplyByScalar(3)->components());
     }
 
     /**
@@ -907,7 +907,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
     public function multiplyByScalarWithZeroDimensionalVector()
     {
         $vector = Vector::nullVector(0);
-        $this->assertSame(array(), $vector->multiplyByScalar(3)->components());
+        $this->assertSame([], $vector->multiplyByScalar(3)->components());
     }
 
     /**
@@ -921,7 +921,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function divideByScalarWithSimpleValue()
     {
-        $vector = new Vector(array(4, 8));
+        $vector = new Vector([4, 8]);
         $resultComponents = $vector->divideByScalar(4)->components();
         $this->assertEquals(1.0, $resultComponents[0], '', 1e-10);
         $this->assertEquals(2.0, $resultComponents[1], '', 1e-10);
@@ -940,7 +940,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
     public function divideByScalarWithZeroDimensionalVector()
     {
         $vector = Vector::nullVector(0);
-        $this->assertSame(array(), $vector->divideByScalar(3)->components());
+        $this->assertSame([], $vector->divideByScalar(3)->components());
     }
 
     /**
@@ -954,7 +954,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function divideByScalarZero()
     {
-        $vector = new Vector(array(4, 8));
+        $vector = new Vector([4, 8]);
         $vector->divideByScalar(0);
     }
 
@@ -971,7 +971,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function normalizeSimpleVector()
     {
-        $vector = new Vector(array(1, 1));
+        $vector = new Vector([1, 1]);
         $resultComponents = $vector->normalize()->components();
         $this->assertEquals(sqrt(2) / 2, $resultComponents[0], '', 1e-10);
         $this->assertEquals(sqrt(2) / 2, $resultComponents[1], '', 1e-10);
@@ -1034,8 +1034,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function projectOntoSimpleVector()
     {
-        $a = new Vector(array(4, 0));
-        $b = new Vector(array(3, 3));
+        $a = new Vector([4, 0]);
+        $b = new Vector([3, 3]);
         $resultComponents = $a->projectOnto($b)->components();
         $this->assertEquals(2, $resultComponents[0], '', 1e-10);
         $this->assertEquals(2, $resultComponents[1], '', 1e-10);
@@ -1063,7 +1063,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
     public function projectNullVectorOntoSimpleVector()
     {
         $a = Vector::nullVector(2);
-        $b = new Vector(array(3, 3));
+        $b = new Vector([3, 3]);
         $resultComponents = $a->projectOnto($b)->components();
         $this->assertEquals(0, $resultComponents[0], '', 1e-10);
         $this->assertEquals(0, $resultComponents[1], '', 1e-10);
@@ -1085,7 +1085,7 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function projectOntoNullVector()
     {
-        $a = new Vector(array(4, 0));
+        $a = new Vector([4, 0]);
         $b = Vector::nullVector(2);
         $a->projectOnto($b);
     }
@@ -1111,8 +1111,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function projectOntoVectorOfDifferentDimension()
     {
-        $a = new Vector(array(4, 0));
-        $b = new Vector(array(5));
+        $a = new Vector([4, 0]);
+        $b = new Vector([5]);
         $a->projectOnto($b);
     }
 
@@ -1137,8 +1137,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function projectOntoVectorWithDifferentlyKeyedComponents()
     {
-        $a = new Vector(array(4, 0));
-        $b = new Vector(array('x' => 5, 'y' => 7));
+        $a = new Vector([4, 0]);
+        $b = new Vector(['x' => 5, 'y' => 7]);
         $a->projectOnto($b);
     }
 
@@ -1158,8 +1158,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function angleBetweenSimpleVectors()
     {
-        $a = new Vector(array(0, 5));
-        $b = new Vector(array(3, 3));
+        $a = new Vector([0, 5]);
+        $b = new Vector([3, 3]);
         $this->assertEquals(M_PI / 4, $a->angleBetween($b), '', 1e-10);
     }
 
@@ -1176,8 +1176,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function angleBetweenZeroLengthVector()
     {
-        $a = new Vector(array(2, 4));
-        $b = new Vector(array(0, 0));
+        $a = new Vector([2, 4]);
+        $b = new Vector([0, 0]);
         $a->angleBetween($b);
     }
 
@@ -1199,8 +1199,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function angleBetweenVectorsOfDifferentDimension()
     {
-        $a = new Vector(array(2, 4));
-        $b = new Vector(array(3));
+        $a = new Vector([2, 4]);
+        $b = new Vector([3]);
         $a->angleBetween($b);
     }
 
@@ -1223,8 +1223,8 @@ class VectorTest extends PHPUnit_Framework_TestCase
      */
     public function angleBetweenDifferentlyKeyedVectors()
     {
-        $a = new Vector(array(2, 4));
-        $b = new Vector(array('x' => 3, 'y' => 7));
+        $a = new Vector([2, 4]);
+        $b = new Vector(['x' => 3, 'y' => 7]);
         $a->angleBetween($b);
     }
 }
