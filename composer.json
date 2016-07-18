@@ -22,5 +22,8 @@
         "psr-4": {
             "Nubs\\Vectorix\\": "src"
         }
+    },
+    "scripts": {
+      "test": "./build.php"
     }
 }
