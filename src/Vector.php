@@ -15,6 +15,9 @@ class Vector
     /** @type array<int|float> The components of the vector. */
     protected $_components;
 
+    /** @type int The dmension of the vector. */
+    protected $_dimension;
+
     /**
      * Initialize the vector with its components.
      *
@@ -66,7 +69,11 @@ class Vector
      */
     public function dimension()
     {
-        return count($this->components());
+        if (!isset($this->_dimension)) {
+            $this->_dimension = count($this->_components);
+        }
+
+        return $this->_dimension;
     }
 
     /**
